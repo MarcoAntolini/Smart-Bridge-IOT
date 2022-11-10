@@ -1,0 +1,44 @@
+HARDWARE:
+- green leds La Lb
+- one red led Lc
+- button B
+- potentiometer Pot
+- servo-monitor M
+- sonar S
+- pir P (proximity sensor)
+- light sensor LS
+- LCD
+
+
+SMART LIGHTING SYSTEM:
+P, LS, La
+- P detects someone: La turned on or not depending on light level measured by LS
+- if level < THl (light threshold): La turned on, otherwise not
+- light turned off after T1 if nobody detected or if light level > THl
+
+WATER MONITORING:
+S, M, Pot, Lb, Lc, B, LCD
+S measures water level continuously
+M controls valves: 0° = closed, 180° = opened
+NORMAL SITUATION: water level < WL1
+- Lb on, Lc off, bridge can be used
+- water measure every period PEnormal
+PRE-ALARM SITUATION: WL1 < water level < WL2
+- Lc blinking every 2s
+- water measure every PEprealarm < PEnormal
+- LCD turned on, informing about pre alarm situation and current water level
+ALARM SITUATION: WL2 < water level < WLmax
+- smart lighting system turned off (La must be off)
+- Lb turned off and Lc on (without blinking)
+- water measure every PEalarm < PEprealarm
+- valves opened of ALPHA degrees (0° < ALPHA < 180°), value depends on current water level (0 = WL2, 180 = WLmax)
+- valves opening changes dynamically depending on water level
+- LCD still on informing about alarm situation, current water level and valves opening degrees
+- human can take control by pressing B, then use Pot to control valves opening, then press again B to stop manual control
+
+
+BASIC VERSION:
+report current state (lights on/off, alarm situation) of the bridge with a GUI or text based output
+
+COMPLETE VERSION:
+graph reporting temporal trend of water level
