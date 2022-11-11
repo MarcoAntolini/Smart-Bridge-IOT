@@ -1,6 +1,6 @@
 HARDWARE:
 - green leds La Lb
-- one red led Lc
+- red led Lc
 - button B
 - potentiometer Pot
 - servo-monitor M
