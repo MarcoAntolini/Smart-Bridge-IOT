@@ -4,7 +4,11 @@
 class Pot
 {
 public:
-    Pot();
+    Pot(int pin);
+    int getValue();
+    
+private:
+    int pin;
 };
 
 #endif
