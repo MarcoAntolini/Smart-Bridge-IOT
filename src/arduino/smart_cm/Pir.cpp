@@ -4,10 +4,13 @@
 Pir::Pir(int pin)
 {
     this->pin = pin;
-    pinMode(pin, OUTPUT);
+    pinMode(pin, INPUT);
 }
 
-bool isSomething()
+bool Pir::isDetected()
 {
-  return this->pin;
+    if (analogRead(pin) == HIGH) {
+        return true;
+    }
+    return false;
 }
