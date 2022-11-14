@@ -9,5 +9,5 @@ Pot::Pot(int pin)
 
 int Pot::getValue()
 {
-    return this->pin;
+    return analogRead(pin);
 }
