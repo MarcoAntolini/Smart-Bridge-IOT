@@ -8,8 +8,6 @@ public:
     bool isPressed();
     void sync();
     long getLastSyncTime();
-
-protected:
     void updateLastSyncTime(long time);
 
 private:

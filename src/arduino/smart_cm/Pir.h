@@ -5,7 +5,7 @@ class Pir
 {
 public:
     Pir(int pin);
-    bool isSomething();
+    bool isDetected();
 
 private:
     int pin;

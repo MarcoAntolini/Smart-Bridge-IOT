@@ -10,4 +10,5 @@ LightSensor::LightSensor(int pin)
 int LightSensor::getLightIntensity()
 {
     return analogRead(pin);
+    /*return map(value,0,1000,0,255);*/
 }
