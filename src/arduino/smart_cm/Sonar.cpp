@@ -7,7 +7,7 @@ Sonar::Sonar(int pin)
     pinMode(pin, INPUT);
 }
 
-void Sonar::detectDistance()
+int Sonar::detectDistance()
 {
     return analogRead(pin);
 }

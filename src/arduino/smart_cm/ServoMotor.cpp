@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "ServoMotor.h"
 
-ServoMotor(int pin)
+ServoMotor::ServoMotor(int pin)
 {
     this->pin = pin;
     pinMode(pin, OUTPUT);

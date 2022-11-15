@@ -6,9 +6,9 @@ class ServoMotor
 public:
     ServoMotor(int pin);
     /* TODO */
-    
+
 private:
-    int pin;  
+    int pin;
 };
 
 #endif

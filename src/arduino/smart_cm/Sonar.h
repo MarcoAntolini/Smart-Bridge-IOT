@@ -4,9 +4,9 @@
 class Sonar
 {
 public:
-    LightSystem(int pin);
-    void detectDistance();
-    
+    Sonar(int pin);
+    int detectDistance();
+
 private:
     int pin;
 };
