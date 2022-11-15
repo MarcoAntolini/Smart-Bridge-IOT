@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "LightSystem.h"
 
-LightSystem(Led ledA, LightSensor lightSensor, Pir pir)
+LightSystem::LightSystem(Led *ledA, LightSensor *lightSensor, Pir *pir)
 {
     this->ledA = ledA;
     this->lightSensor = lightSensor;

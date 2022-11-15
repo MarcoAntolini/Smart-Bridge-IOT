@@ -8,12 +8,12 @@
 class LightSystem
 {
 public:
-    LightSystem(Led ledA, LightSensor lightSensor, Pir pir);
+    LightSystem(Led *led, LightSensor *lightSensor, Pir *pir);
 
 private:
-    Led ledA;
-    LightSensor lightSensor;
-    Pir pir;
+    Led *ledA;
+    LightSensor *lightSensor;
+    Pir *pir;
     int lightLevel;
     int offTimer;
     int lightTreshold;
