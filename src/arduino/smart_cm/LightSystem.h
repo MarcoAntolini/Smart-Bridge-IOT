@@ -14,9 +14,9 @@ private:
     Led *ledA;
     LightSensor *lightSensor;
     Pir *pir;
-    int lightLevel;
-    int offTimer;
-    int lightTreshold;
+    int *lightLevel;
+    int *offTimer;
+    int *lightTreshold;
 };
 
 #endif
