@@ -7,6 +7,7 @@ class Monitor
 {
 public:
     void showMessage();
+    void clear();
 
 private:
     LiquidCrystal_I2C lcd;
