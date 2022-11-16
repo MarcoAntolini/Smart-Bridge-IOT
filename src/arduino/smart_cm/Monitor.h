@@ -1,17 +1,15 @@
 #ifndef __MONITOR__
 #define __MONITOR__
 
+#include "Component.h"
 #include <string>
 using namespace std;
 
-class Monitor
+class Monitor : public Component
 {
 public:
-    Monitor(int pin);
+    using Component::Component;
     void showMessage();
-
-private:
-    int pin;
 };
 
 #endif

@@ -1,17 +1,18 @@
 #ifndef __BUTTON__
 #define __BUTTON__
 
-class Button
+#include "Component.h"
+
+class Button : public Component
 {
 public:
-    Button(int pin);
+    using Component::Component;
     bool isPressed();
     void sync();
     long getLastSyncTime();
     void updateLastSyncTime(long time);
 
 private:
-    int pin;
     bool pressed;
     long lastSyncTime;
 };

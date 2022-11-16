@@ -1,14 +1,13 @@
 #ifndef __LIGHTSENSOR__
 #define __LIGHTSENSOR__
 
-class LightSensor
+#include "Component.h"
+
+class LightSensor : public Component
 {
 public:
-    LightSensor(int pin);
+    using Component::Component;
     int getLightIntensity();
-
-private:
-    int pin;
 };
 
 #endif

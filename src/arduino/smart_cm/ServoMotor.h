@@ -1,14 +1,13 @@
 #ifndef __SERVOMOTOR__
 #define __SERVOMOTOR__
 
-class ServoMotor
+#include "Component.h"
+
+class ServoMotor : public Component
 {
 public:
-    ServoMotor(int pin);
+    using Component::Component;
     /* TODO */
-
-private:
-    int pin;
 };
 
 #endif

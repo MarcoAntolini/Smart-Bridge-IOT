@@ -1,13 +1,6 @@
 #include "Arduino.h"
 #include "Button.h"
 
-Button::Button(int pin)
-{
-    this->pin = pin;
-    pinMode(pin, INPUT);
-    sync();
-}
-
 bool Button::isPressed()
 {
     return pressed;
@@ -15,7 +8,7 @@ bool Button::isPressed()
 
 void Button::sync()
 {
-    pressed = digitalRead(pin) == HIGH;
+    pressed = digitalRead(getPin()) == HIGH;
     updateLastSyncTime(millis());
 }
 

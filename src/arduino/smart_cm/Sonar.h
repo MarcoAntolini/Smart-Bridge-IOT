@@ -1,14 +1,13 @@
 #ifndef __SONAR__
 #define __SONAR__
 
-class Sonar
+#include "Component.h"
+
+class Sonar : public Component
 {
 public:
-    Sonar(int pin);
+    using Component::Component;
     int detectDistance();
-
-private:
-    int pin;
 };
 
 #endif

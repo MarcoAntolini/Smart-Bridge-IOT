@@ -1,14 +1,13 @@
 #ifndef __PIR__
 #define __PIR__
 
-class Pir
+#include "Component.h"
+
+class Pir : public Component
 {
 public:
-    Pir(int pin);
+    using Component::Component;
     bool isDetected();
-
-private:
-    int pin;
 };
 
 #endif

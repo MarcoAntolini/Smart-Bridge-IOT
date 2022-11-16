@@ -3,27 +3,13 @@
 
 #include "AlarmState.h"
 
-Monitor::Monitor(int pin)
-{
-    this->pin = pin;
-    pinMode(pin, OUTPUT);
-}
-
 void Monitor::showMessage()
 {
     AlarmState alarmState = AlarmState::NORMAL_SITUATION;
-    switch (alarmState)
+    if (alarmState == AlarmState::PRE_ALARM_SITUATION)
     {
-    case AlarmState::NORMAL_SITUATION:
-
-        break;
-    case AlarmState::ALARM_SITUATION:
-
-        break;
-    case AlarmState::PRE_ALARM_SITUATION:
-
-        break;
-    default:
-        break;
+    }
+    else if (alarmState == AlarmState::ALARM_SITUATION)
+    {
     }
 }
