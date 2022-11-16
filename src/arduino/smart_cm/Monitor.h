@@ -1,15 +1,15 @@
 #ifndef __MONITOR__
 #define __MONITOR__
 
-#include "Component.h"
-#include <string>
-using namespace std;
+#include "../../../lib/LiquidCrystal_I2C/LiquidCrystal_I2C.h"
 
-class Monitor : public Component
+class Monitor
 {
 public:
-    using Component::Component;
     void showMessage();
+
+private:
+    LiquidCrystal_I2C lcd;
 };
 
 #endif

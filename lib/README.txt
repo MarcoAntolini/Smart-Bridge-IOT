@@ -1,0 +1,1 @@
+Questa cartella è stata creata allo scopo di includere librerie non create da noi ma richieste per lo sviluppo del software.
