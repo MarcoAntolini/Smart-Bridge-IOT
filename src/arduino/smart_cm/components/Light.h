@@ -1,9 +1,9 @@
-#ifndef __LED__
-#define __LED__
+#ifndef __LIGHT__
+#define __LIGHT__
 
 #include "Component.h"
 
-class Led : public Component
+class Light : public Component
 {
 public:
     using Component::Component;

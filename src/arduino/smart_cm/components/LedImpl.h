@@ -1,12 +1,12 @@
 #ifndef __LEDIMPL__
 #define __LEDIMPL__
 
-#include "Led.h"
+#include "Light.h"
 
-class LedImpl : public Led
+class LedImpl : public Light
 {
 public:
-    using Led::Led;
+    using Light::Light;
     void switchOn();
     void switchOff();
 };
