@@ -10,13 +10,13 @@ class Scheduler
 private:
     int period;
     int nTasks;
-    Task* task1PList[MAX_TASKS];
-    Task* task2PList[MAX_TASKS];
+    Task *task1PList[MAX_TASKS];
+    Task *task2PList[MAX_TASKS];
 
 public:
-    scheduler(int period);
+    Scheduler(int period);
 
-    virtual bool addTask(Task* task);
+    virtual bool addTask(Task *task);
     virtual void breakTask();
 };
 

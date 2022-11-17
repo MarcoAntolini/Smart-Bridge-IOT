@@ -6,21 +6,23 @@ class Task
 private:
     bool active;
     bool play;
+
 public:
-    task(){
+    Task()
+    {
         active = false;
         play = false;
     }
 
-    virtual bool isActive(){
+    virtual bool isActive()
+    {
         return active;
     }
 
-    virtual bool isPlay(){
+    virtual bool isPlay()
+    {
         return play;
     }
-
 };
-
 
 #endif
