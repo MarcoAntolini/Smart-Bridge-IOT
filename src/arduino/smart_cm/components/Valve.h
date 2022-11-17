@@ -6,6 +6,7 @@ class Valve
 public:
     virtual void close();
     virtual void open(int angle);
+    virtual int getAngle();
 };
 
 #endif

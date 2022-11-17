@@ -9,6 +9,7 @@ public:
     ValveImpl();
     void close();
     void open(int angle);
+    int getAngle();
 
 private:
     int angle;

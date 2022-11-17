@@ -15,3 +15,8 @@ void ValveImpl::open(int angle)
 {
     this->angle = angle;
 }
+
+int ValveImpl::getAngle()
+{
+    return this->angle;
+}
