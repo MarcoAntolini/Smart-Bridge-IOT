@@ -4,12 +4,8 @@
 class Valve
 {
 public:
-    Valve();
-    void close();
-    void open(int angle);
-
-private:
-    int angle;
+    virtual void close();
+    virtual void open(int angle);
 };
 
 #endif

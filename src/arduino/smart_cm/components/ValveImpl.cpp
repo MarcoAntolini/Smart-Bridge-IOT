@@ -1,17 +1,17 @@
 #include "Arduino.h"
-#include "Valve.h"
+#include "ValveImpl.h"
 
-Valve::Valve()
+ValveImpl::ValveImpl()
 {
     this->angle = 0;
 }
 
-void Valve::close()
+void ValveImpl::close()
 {
     this->angle = 0;
 }
 
-void Valve::open(int angle)
+void ValveImpl::open(int angle)
 {
     this->angle = angle;
 }

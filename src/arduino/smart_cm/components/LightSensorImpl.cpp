@@ -1,7 +1,7 @@
 #include "Arduino.h"
-#include "LightSensor.h"
+#include "LightSensormpl.h"
 
-int LightSensor::getLightIntensity()
+int LightSensorImpl::getLightIntensity()
 {
     return analogRead(getPin());
     /*return map(value,0,1000,0,255);*/

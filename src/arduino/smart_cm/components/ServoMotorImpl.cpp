@@ -1,4 +1,4 @@
 #include "Arduino.h"
-#include "ServoMotor.h"
+#include "ServoMotorImpl.h"
 
 /*TODO*/

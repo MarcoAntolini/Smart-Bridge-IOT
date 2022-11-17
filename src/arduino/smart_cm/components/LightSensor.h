@@ -7,7 +7,7 @@ class LightSensor : public Component
 {
 public:
     using Component::Component;
-    int getLightIntensity();
+    virtual int getLightIntensity();
 };
 
 #endif

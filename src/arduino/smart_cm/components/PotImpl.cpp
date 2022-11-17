@@ -1,7 +1,7 @@
 #include "Arduino.h"
-#include "Sonar.h"
+#include "PotImpl.h"
 
-int Sonar::detectDistance()
+int PotImpl::getValue()
 {
     return analogRead(getPin());
 }

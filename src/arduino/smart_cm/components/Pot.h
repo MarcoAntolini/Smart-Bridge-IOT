@@ -7,7 +7,7 @@ class Pot : public Component
 {
 public:
     using Component::Component;
-    int getValue();
+    virtual int getValue();
 };
 
 #endif

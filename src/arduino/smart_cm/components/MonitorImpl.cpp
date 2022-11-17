@@ -1,9 +1,9 @@
 #include "Arduino.h"
-#include "Monitor.h"
+#include "MonitorImpl.h"
 
 #include "AlarmState.h"
 
-void Monitor::showMessage()
+void MonitorImpl::showMessage()
 {
     AlarmState alarmState = AlarmState::NORMAL_SITUATION;
     if (alarmState == AlarmState::PRE_ALARM_SITUATION)

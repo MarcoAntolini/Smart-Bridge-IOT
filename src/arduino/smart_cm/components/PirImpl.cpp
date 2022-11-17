@@ -1,7 +1,7 @@
 #include "Arduino.h"
-#include "Pir.h"
+#include "PirImpl.h"
 
-bool Pir::isDetected()
+bool PirImpl::isDetected()
 {
     if (analogRead(getPin()) == HIGH)
     {

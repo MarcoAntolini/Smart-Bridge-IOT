@@ -7,7 +7,7 @@ class Pir : public Component
 {
 public:
     using Component::Component;
-    bool isDetected();
+    virtual bool isDetected();
 };
 
 #endif

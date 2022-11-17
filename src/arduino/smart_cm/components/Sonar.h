@@ -7,7 +7,7 @@ class Sonar : public Component
 {
 public:
     using Component::Component;
-    int detectDistance();
+    virtual int detectDistance();
 };
 
 #endif
