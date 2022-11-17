@@ -4,7 +4,6 @@
 #include "LightSensor.h"
 #include "Pir.h"
 #include "LightSystem.h"
-#include "Button.h"
 
 void setup()
 {
