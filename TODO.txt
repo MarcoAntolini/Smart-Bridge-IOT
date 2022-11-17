@@ -3,7 +3,7 @@ HARDWARE:
 - red led Lc
 - button B
 - potentiometer Pot
-- servo-monitor M
+- servo-motor M
 - sonar S
 - pir P (proximity sensor)
 - light sensor LS
