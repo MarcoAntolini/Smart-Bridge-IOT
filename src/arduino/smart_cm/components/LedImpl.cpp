@@ -1,12 +1,12 @@
 #include "Arduino.h"
-#include "Led.h"
+#include "LedImpl.h"
 
-void Led::switchOn()
+void LedImpl::switchOn()
 {
     digitalWrite(getPin(), HIGH);
 }
 
-void Led::switchOff()
+void LedImpl::switchOff()
 {
     digitalWrite(getPin(), LOW);
 }

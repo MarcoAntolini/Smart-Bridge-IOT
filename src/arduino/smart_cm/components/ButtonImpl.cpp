@@ -1,23 +1,23 @@
 #include "Arduino.h"
-#include "Button.h"
+#include "ButtonImpl.h"
 
-bool Button::isPressed()
+bool ButtonImpl::isPressed()
 {
     return pressed;
 }
 
-void Button::sync()
+void ButtonImpl::sync()
 {
     pressed = digitalRead(getPin()) == HIGH;
     updateLastSyncTime(millis());
 }
 
-long Button::getLastSyncTime()
+long ButtonImpl::getLastSyncTime()
 {
     return lastSyncTime;
 }
 
-void Button::updateLastSyncTime(long time)
+void ButtonImpl::updateLastSyncTime(long time)
 {
     lastSyncTime = time;
 }

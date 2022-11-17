@@ -1,28 +1,28 @@
 #include "Arduino.h"
-#include "Component.h"
+#include "ComponentImpl.h"
 
-Component::Component(uint8_t pin, uint8_t mode)
+ComponentImpl::ComponentImpl(uint8_t pin, uint8_t mode)
 {
     this->pin = pin;
     this->mode = mode;
 }
 
-void Component::setPin(uint8_t pin)
+void ComponentImpl::setPin(uint8_t pin)
 {
     this->pin = pin;
 }
 
-void Component::setMode(uint8_t mode)
+void ComponentImpl::setMode(uint8_t mode)
 {
     this->mode = mode;
 }
 
-uint8_t Component::getPin()
+uint8_t ComponentImpl::getPin()
 {
     return this->pin;
 }
 
-uint8_t Component::getMode()
+uint8_t ComponentImpl::getMode()
 {
     return this->mode;
 }
