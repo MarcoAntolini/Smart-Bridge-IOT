@@ -7,7 +7,11 @@ class PirImpl : public Pir
 {
 public:
     using Pir::Pir;
-    virtual bool isDetected();
+    bool isDetected();
+    long getLastSyncTime();
+
+private:
+    long lastSyncTime;
 };
 
 #endif
