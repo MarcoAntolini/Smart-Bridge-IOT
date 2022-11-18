@@ -39,7 +39,7 @@ void MonitorImpl::showMessage()
     // TODO togliere:
     AlarmState alarmState = AlarmState::NORMAL_SITUATION;
     Valve *valve = new Valve();
-    Sonar *sonar = new Sonar(0, 0);
+    Sonar *sonar = new Sonar(0);
 
     if (alarmState == AlarmState::PRE_ALARM_SITUATION)
     {

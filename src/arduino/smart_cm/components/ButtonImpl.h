@@ -6,7 +6,7 @@
 class ButtonImpl : public Button
 {
 public:
-    using Button::Button;
+    ButtonImpl(uint8_t pin) : Button(pin){};
     bool isPressed();
     void sync();
     long getLastSyncTime();

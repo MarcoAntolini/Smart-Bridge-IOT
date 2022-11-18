@@ -6,7 +6,7 @@
 class LedImpl : public Light
 {
 public:
-    using Light::Light;
+    LedImpl(uint8_t pin) : Light(pin){};
     void switchOn();
     void switchOff();
 };

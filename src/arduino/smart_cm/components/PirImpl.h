@@ -6,12 +6,8 @@
 class PirImpl : public Pir
 {
 public:
-    using Pir::Pir;
+    PirImpl(uint8_t pin) : Pir(pin){};
     bool isDetected();
-    long getLastSyncTime();
-
-private:
-    long lastSyncTime;
 };
 
 #endif

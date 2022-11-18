@@ -6,7 +6,7 @@
 class PotImpl : public Pot
 {
 public:
-    using Pot::Pot;
+    PotImpl(uint8_t pin) : Pot(pin){};
     int getValue();
 };
 

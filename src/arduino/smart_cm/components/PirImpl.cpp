@@ -1,17 +1,20 @@
 #include "Arduino.h"
 #include "PirImpl.h"
 
-bool PirImpl::isDetected()
+PirImpl::PirImpl(uint8_t pin) : Pir(pin)
 {
-    if (analogRead(getPin()) == HIGH)
-    {
-        lastSyncTime = millis();
-        return true;
-    }
-    return false;
+    pinMode(pin, INPUT);
 }
 
-long PirImpl::getLastSyncTime()
+bool PirImpl::isDetected()
 {
-    return this->lastSyncTime;
+    return analogRead(getPin()) == HIGH ? true : false;
 }
+
+// void PirImpl::sync()
+// {
+//     if (isDetected())
+//     {
+//         setLastSyncTime(millis());
+//     }
+// }

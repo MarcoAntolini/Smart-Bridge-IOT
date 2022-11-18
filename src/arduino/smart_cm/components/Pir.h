@@ -8,7 +8,6 @@ class Pir : public ComponentImpl
 public:
     using ComponentImpl::ComponentImpl;
     virtual bool isDetected();
-    virtual long getLastSyncTime();
 };
 
 #endif

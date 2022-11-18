@@ -3,10 +3,9 @@
 
 #include "ComponentImpl.h"
 
-class Sonar : public ComponentImpl
+class Sonar
 {
 public:
-    using ComponentImpl::ComponentImpl;
     virtual int detectDistance();
 };
 
