@@ -1,12 +1,12 @@
 #ifndef __PIR__
 #define __PIR__
 
-#include "Component.h"
+#include "ComponentImpl.h"
 
-class Pir : public Component
+class Pir : public ComponentImpl
 {
 public:
-    using Component::Component;
+    using ComponentImpl::ComponentImpl;
     virtual bool isDetected();
 };
 

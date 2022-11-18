@@ -1,12 +1,12 @@
 #ifndef __SONAR__
 #define __SONAR__
 
-#include "Component.h"
+#include "ComponentImpl.h"
 
-class Sonar : public Component
+class Sonar : public ComponentImpl
 {
 public:
-    using Component::Component;
+    using ComponentImpl::ComponentImpl;
     virtual int detectDistance();
 };
 

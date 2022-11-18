@@ -1,12 +1,12 @@
 #ifndef __LIGHTSENSOR__
 #define __LIGHTSENSOR__
 
-#include "Component.h"
+#include "ComponentImpl.h"
 
-class LightSensor : public Component
+class LightSensor : public ComponentImpl
 {
 public:
-    using Component::Component;
+    using ComponentImpl::ComponentImpl;
     virtual int getLightIntensity();
 };
 

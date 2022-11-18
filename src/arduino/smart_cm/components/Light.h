@@ -1,12 +1,12 @@
 #ifndef __LIGHT__
 #define __LIGHT__
 
-#include "Component.h"
+#include "ComponentImpl.h"
 
-class Light : public Component
+class Light : public ComponentImpl
 {
 public:
-    using Component::Component;
+    using ComponentImpl::ComponentImpl;
     void switchOn();
     void switchOff();
 };

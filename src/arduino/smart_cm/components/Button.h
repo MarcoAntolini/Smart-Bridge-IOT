@@ -1,12 +1,12 @@
 #ifndef __BUTTON__
 #define __BUTTON__
 
-#include "Component.h"
+#include "ComponentImpl.h"
 
-class Button : public Component
+class Button : public ComponentImpl
 {
 public:
-    using Component::Component;
+    using ComponentImpl::ComponentImpl;
     virtual bool isPressed() = 0;
     virtual void sync() = 0;
     virtual long getLastSyncTime() = 0;

@@ -1,12 +1,12 @@
 #ifndef __POT__
 #define __POT__
 
-#include "Component.h"
+#include "ComponentImpl.h"
 
-class Pot : public Component
+class Pot : public ComponentImpl
 {
 public:
-    using Component::Component;
+    using ComponentImpl::ComponentImpl;
     virtual int getValue();
 };
 

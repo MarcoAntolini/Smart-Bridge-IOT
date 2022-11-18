@@ -1,12 +1,12 @@
 #ifndef __SERVOMOTOR__
 #define __SERVOMOTOR__
 
-#include "Component.h"
+#include "ComponentImpl.h"
 
-class ServoMotor : public Component
+class ServoMotor : public ComponentImpl
 {
 public:
-    using Component::Component;
+    using ComponentImpl::ComponentImpl;
     /* TODO */
 };
 

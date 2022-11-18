@@ -3,10 +3,7 @@
 
 #include "AlarmState.h"
 #include "Valve.h"
-
-#include <iostream>
-#include <string>
-using namespace std;
+#include "Sonar.h"
 
 String alarm = "Alarm Situation";
 String preAlarm = "Pre Alarm Situation";
@@ -42,19 +39,20 @@ void MonitorImpl::showMessage()
     // TODO togliere:
     AlarmState alarmState = AlarmState::NORMAL_SITUATION;
     Valve *valve = new Valve();
+    Sonar *sonar = new Sonar(0, 0);
 
     if (alarmState == AlarmState::PRE_ALARM_SITUATION)
     {
         lcd->print(preAlarm);
         lcd->setCursor(2, 1);
-        lcd->print(water +);
+        lcd->print(water + sonar->detectDistance());
     }
     else if (alarmState == AlarmState::ALARM_SITUATION)
     {
         lcd->print(alarm);
         lcd->setCursor(2, 1);
-        lcd->print(water +);
+        lcd->print(water + sonar->detectDistance());
         lcd->setCursor(3, 1);
-        lcd->print(valves + to_string(valve->getAngle));
+        lcd->print(valves + valve->getAngle());
     }
 }
