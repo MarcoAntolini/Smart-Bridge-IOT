@@ -3,7 +3,7 @@
 
 #include "AlarmState.h"
 #include "Valve.h"
-#include "Sonar.h"
+#include "SonarImpl.h"
 
 String alarm = "Alarm Situation";
 String preAlarm = "Pre Alarm Situation";
@@ -39,7 +39,7 @@ void MonitorImpl::showMessage()
     // TODO togliere:
     AlarmState alarmState = AlarmState::NORMAL_SITUATION;
     Valve *valve = new Valve();
-    Sonar *sonar = new Sonar(0);
+    Sonar *sonar = new SonarImpl(0, 0);
 
     if (alarmState == AlarmState::PRE_ALARM_SITUATION)
     {
