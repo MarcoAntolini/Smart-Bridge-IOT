@@ -3,10 +3,6 @@
 
 class Task
 {
-private:
-    bool active;
-    bool play;
-
 public:
     Task()
     {
@@ -23,6 +19,10 @@ public:
     {
         return play;
     }
+
+private:
+    bool active;
+    bool play;
 };
 
 #endif

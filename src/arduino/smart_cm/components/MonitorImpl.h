@@ -1,8 +1,8 @@
 #ifndef __MONITORIMPL__
 #define __MONITORIMPL__
 
-#include "../../../lib/LiquidCrystal_I2C/LiquidCrystal_I2C.h"
 #include "Monitor.h"
+#include "LiquidCrystal_I2C.h"
 
 class MonitorImpl : public Monitor
 {
