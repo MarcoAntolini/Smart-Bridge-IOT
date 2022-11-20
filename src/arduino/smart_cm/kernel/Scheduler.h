@@ -11,12 +11,12 @@ public:
     Scheduler(int period);
     virtual bool addTask(Task *task);
     virtual void breakTask();
+    virtual void run();
 
 private:
     int period;
     int nTask;
-    Task *task1PList[MAX_TASKS];
-    Task *task2PList[MAX_TASKS];
+    Task *taskList[MAX_TASKS];
 };
 
 #endif

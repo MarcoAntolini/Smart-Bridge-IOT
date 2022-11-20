@@ -7,7 +7,6 @@ public:
     Task()
     {
         active = false;
-        play = false;
     }
 
     virtual bool isActive()
@@ -15,10 +14,7 @@ public:
         return active;
     }
 
-    virtual bool isPlay()
-    {
-        return play;
-    }
+    virtual void run();
 
 private:
     bool active;
