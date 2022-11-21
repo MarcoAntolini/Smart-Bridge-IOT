@@ -1,7 +1,7 @@
 #ifndef __WATERSYSTEM__
 #define __WATERSYSTEM__
 
-#include "AlarmState.h"
+#include "..\AlarmState.h"
 
 class WaterSystem
 {
