@@ -6,7 +6,7 @@
 class PotImpl : public Pot
 {
 public:
-    PotImpl(uint8_t pin) : Pot(pin){};
+    PotImpl(uint8_t pin) : Pot(pin) { pinMode(pin, INPUT); };
     int getValue();
 };
 

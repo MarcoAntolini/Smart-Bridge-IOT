@@ -6,7 +6,7 @@
 class ServoMotorImpl : public ServoMotor
 {
 public:
-    ServoMotorImpl(uint8_t pin) : ServoMotor(pin){};
+    ServoMotorImpl(uint8_t pin) : ServoMotor(pin) { this->angle = 0; };
     void open(int angle);
     void close();
     int getAngle();

@@ -1,17 +1,19 @@
 #include "Scheduler.h"
 #include <TimerOne.h>
 
+volatile bool timerFlag;
+
+static void interruptTimer()
+{
+    timerFlag = true;
+}
+
 Scheduler::Scheduler(int period)
 {
     this->nTask = 0;
     this->period = period * 1000;
     Timer1.initialize(this->period);
-    Timer1.attachInterrupt(interruptTimer());
-}
-
-void Scheduler::interruptTimer()
-{
-    timerFlag = true;
+    Timer1.attachInterrupt(interruptTimer);
 }
 
 void Scheduler::schedule()

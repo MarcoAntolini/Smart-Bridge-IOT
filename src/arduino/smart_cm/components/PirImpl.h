@@ -6,7 +6,7 @@
 class PirImpl : public Pir
 {
 public:
-    PirImpl(uint8_t pin) : Pir(pin){};
+    PirImpl(uint8_t pin) : Pir(pin) { pinMode(pin, INPUT); };
     bool isDetected();
 };
 

@@ -1,9 +1,10 @@
 #ifndef __LIGHTSYSTEM__
 #define __LIGHTSYSTEM__
 
-#include "components/Light.h"
-#include "components/LightSensor.h"
-#include "components/Pir.h"
+#include "components\Light.h"
+#include "components\Button.h"
+#include "components\Pir.h"
+#include "components\LightSensor.h"
 
 class LightSystem
 {

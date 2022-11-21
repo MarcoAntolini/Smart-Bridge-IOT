@@ -39,7 +39,7 @@ void MonitorImpl::showMessage()
 
     // TODO togliere:
     AlarmState alarmState = AlarmState::NORMAL_SITUATION;
-    ServoMotor *servoMotor = new ServoMotorImpl();
+    ServoMotor *servoMotor = new ServoMotorImpl(0);
     Sonar *sonar = new SonarImpl(0, 0);
 
     if (alarmState == AlarmState::PRE_ALARM_SITUATION)

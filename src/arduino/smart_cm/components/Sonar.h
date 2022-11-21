@@ -6,7 +6,7 @@
 class Sonar
 {
 public:
-    virtual int detectDistance();
+    virtual float detectDistance();
 };
 
 #endif

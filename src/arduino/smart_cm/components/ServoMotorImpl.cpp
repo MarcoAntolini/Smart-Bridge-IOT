@@ -1,10 +1,10 @@
 #include "Arduino.h"
 #include "ServoMotorImpl.h"
 
-ServoMotorImpl::ServoMotorImpl(uint8_t pin) : ServoMotor(pin)
-{
-    this->angle = 0;
-}
+// ServoMotorImpl::ServoMotorImpl(uint8_t pin) : ServoMotor(pin)
+// {
+//     this->angle = 0;
+// }
 
 void ServoMotorImpl::open(int angle)
 {
