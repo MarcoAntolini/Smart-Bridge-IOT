@@ -2,7 +2,7 @@
 #include <TimerOne.h>
 #include "..\Config.h"
 
-static void interruptTimer()
+void interruptTimer()
 {
     timerFlag = true;
 }
@@ -11,6 +11,7 @@ void Scheduler::init(int period)
 {
     this->nTask = 0;
     this->period = period * 1000;
+    timerFlag = false;
     Timer1.initialize(this->period);
     Timer1.attachInterrupt(interruptTimer);
 }
@@ -23,10 +24,19 @@ void Scheduler::schedule()
     timerFlag = false;
     for (int i = 0; i < nTask; i++)
     {
-        Timer1.restart();
-        if (taskList[i]->isActive() && taskList[i]->update(period))
+        if (taskList[i]->isActive())
         {
-            taskList[i]->run();
+            if (taskList[i]->isPeriodic())
+            {
+                if (taskList[i]->update(period))
+                {
+                    taskList[i]->run();
+                }
+            }
+            else
+            {
+                taskList[i]->run();
+            }
         }
     }
 }

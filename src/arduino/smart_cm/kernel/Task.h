@@ -12,11 +12,13 @@ public:
     virtual void init()
     {
         this->active = true;
+        this->period = false;
     }
 
     virtual void init(int period)
     {
         this->active = true;
+        this->periodic = true;
         this->period = period;
         this->timeElapsed = 0;
     }
@@ -35,6 +37,11 @@ public:
     bool isActive()
     {
         return this->active;
+    }
+
+    bool isPeriodic()
+    {
+        return this->periodic;
     }
 
     bool update(int period)
@@ -57,6 +64,7 @@ private:
     int period;
     int timeElapsed;
     bool active;
+    bool periodic;
 };
 
 #endif
