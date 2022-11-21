@@ -44,17 +44,18 @@ public:
         return this->periodic;
     }
 
-    bool update(int period)
+    bool checkPeriod(int time)
     {
-        this->timeElapsed += period;
-        if (this->timeElapsed >= this->period)
+        timeElapsed += time;
+        if (timeElapsed >= period)
         {
-            this->timeElapsed = 0;
-            return true;
+            timeElapsed = 0;
+            active = false;
+            return false;
         }
         else
         {
-            return false;
+            return true;
         }
     }
 

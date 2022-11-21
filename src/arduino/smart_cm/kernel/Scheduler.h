@@ -10,9 +10,8 @@ class Scheduler
 public:
     virtual void init(int period);
     virtual void schedule();
-    virtual bool addTask(Task *task);
+    virtual void addTask(Task *task);
     virtual void deactivateAll();
-    virtual void breakTask();
 
 private:
     int period;

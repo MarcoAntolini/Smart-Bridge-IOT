@@ -28,7 +28,7 @@ void Scheduler::schedule()
         {
             if (taskList[i]->isPeriodic())
             {
-                if (taskList[i]->update(period))
+                if (taskList[i]->checkPeriod(period))
                 {
                     taskList[i]->run();
                 }
@@ -41,15 +41,13 @@ void Scheduler::schedule()
     }
 }
 
-bool Scheduler::addTask(Task *task)
+void Scheduler::addTask(Task *task)
 {
     if (nTask < MAX_TASKS - 1)
     {
         taskList[nTask] = task;
         nTask++;
-        return true;
     }
-    return false;
 }
 
 void Scheduler::deactivateAll()
@@ -58,9 +56,4 @@ void Scheduler::deactivateAll()
     {
         taskList[i]->setActive(false);
     }
-}
-
-void Scheduler::breakTask()
-{
-    Timer1.stop();
 }
