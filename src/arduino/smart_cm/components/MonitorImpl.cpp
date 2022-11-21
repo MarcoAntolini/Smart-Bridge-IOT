@@ -3,7 +3,7 @@
 
 // TODO togliere:
 #include "../AlarmState.h"
-#include "Valve.h"
+#include "ServoMotorImpl.h"
 #include "SonarImpl.h"
 
 String alarm = "Alarm Situation";
@@ -39,7 +39,7 @@ void MonitorImpl::showMessage()
 
     // TODO togliere:
     AlarmState alarmState = AlarmState::NORMAL_SITUATION;
-    Valve *valve = new Valve();
+    ServoMotor *servoMotor = new ServoMotorImpl();
     Sonar *sonar = new SonarImpl(0, 0);
 
     if (alarmState == AlarmState::PRE_ALARM_SITUATION)
@@ -54,6 +54,6 @@ void MonitorImpl::showMessage()
         lcd->setCursor(2, 1);
         lcd->print(water + sonar->detectDistance());
         lcd->setCursor(3, 1);
-        lcd->print(valves + valve->getAngle());
+        lcd->print(valves + servoMotor->getAngle());
     }
 }
