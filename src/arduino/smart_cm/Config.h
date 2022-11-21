@@ -28,10 +28,10 @@ const int period_alarm = 3000;
 const int lightTreshold = 0;
 const int lightTimer = 0;
 
-String alarm = "Alarm Situation";
-String preAlarm = "Pre Alarm Situation";
-String water = "Current water level: ";
-String valves = "Current valves opening degrees: ";
+const String alarm = "Alarm Situation";
+const String preAlarm = "Pre Alarm Situation";
+const String water = "Current water level: ";
+const String valves = "Current valves opening degrees: ";
 
 volatile bool timerFlag;
 
