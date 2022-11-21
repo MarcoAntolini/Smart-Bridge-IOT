@@ -8,5 +8,5 @@ PotImpl::PotImpl(uint8_t pin) : Pot(pin)
 
 int PotImpl::getValue()
 {
-    return analogRead(getPin());
+    return map(analogRead(getPin()), 0, 1023, 0, 180);
 }
