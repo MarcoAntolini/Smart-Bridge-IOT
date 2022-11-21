@@ -1,15 +1,11 @@
 #include "Arduino.h"
 #include "MonitorImpl.h"
+#include "..\Config.h"
 
 // TODO togliere:
 #include "../AlarmState.h"
 #include "ServoMotorImpl.h"
 #include "SonarImpl.h"
-
-String alarm = "Alarm Situation";
-String preAlarm = "Pre Alarm Situation";
-String water = "Current water level: ";
-String valves = "Current valves opening degrees: ";
 
 MonitorImpl::MonitorImpl(uint8_t addr, uint8_t cols, uint8_t rows)
 {

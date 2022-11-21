@@ -1,7 +1,6 @@
 #include "Scheduler.h"
 #include <TimerOne.h>
-
-volatile bool timerFlag;
+#include "..\Config.h"
 
 static void interruptTimer()
 {

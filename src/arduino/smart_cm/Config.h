@@ -1,6 +1,8 @@
 #ifndef __CONFIG__
 #define __CONFIG__
 
+#include "Arduino.h"
+
 #define PIN_POT 0
 #define PIN_PIR 0
 #define PIN_BUTTON 0
@@ -10,17 +12,27 @@
 #define PIN_SERVO_MOTOR 0
 #define PIN_LIGHT_SENSOR 0
 #define PIN_SONAR_I 0
-#define PIN_SONAR_ 0
+#define PIN_SONAR_O 0
 
 #define LCD_ADDR 0x27
 #define LCD_COLS 3
 #define LCD_ROWS 35
 
-float waterLevel_1 = 0;
-float waterLevel_2 = 0;
-float waterLevel_max = 0;
-int period_normal = 1000;
-int period_preAlarm = 2000;
-int period_alarm = 3000;
+const float waterLevel_1 = 33;
+const float waterLevel_2 = 66;
+const float waterLevel_max = 100;
+const int period_normal = 1000;
+const int period_preAlarm = 2000;
+const int period_alarm = 3000;
+
+const int lightTreshold = 0;
+const int lightTimer = 0;
+
+String alarm = "Alarm Situation";
+String preAlarm = "Pre Alarm Situation";
+String water = "Current water level: ";
+String valves = "Current valves opening degrees: ";
+
+volatile bool timerFlag;
 
 #endif
