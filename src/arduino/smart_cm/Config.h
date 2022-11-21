@@ -18,6 +18,8 @@
 #define LCD_COLS 3
 #define LCD_ROWS 35
 
+#define MAX_TASKS 20
+
 const float waterLevel_1 = 33;
 const float waterLevel_2 = 66;
 const float waterLevel_max = 100;
