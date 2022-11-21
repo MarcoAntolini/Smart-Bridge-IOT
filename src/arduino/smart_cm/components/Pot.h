@@ -7,8 +7,7 @@ class Pot : public ComponentImpl
 {
 public:
     using ComponentImpl::ComponentImpl;
-    virtual int getValue();
-    virtual long getLastSyncTime();
+    virtual int getValue() = 0;
 };
 
 #endif

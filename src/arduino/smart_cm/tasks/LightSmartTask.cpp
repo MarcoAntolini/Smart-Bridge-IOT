@@ -3,36 +3,39 @@
 
 void LightSmartTask::run()
 {
-    while (TRUE)
+    while (true)
     {
-        lightValue = lightSensor->readLight();
-        pirValue = pir->readPir();
-        if(pirValue == TRUE)
+        lightValue = lightSensor->getLightIntensity();
+        pirValue = pir->isDetected();
+        if (pirValue)
         {
             light->switchOn();
-            lightStatus = TRUE;
+            lightStatus = true;
             delayTime = millis();
-        }else{
-            if(lightStatus == TRUE)
+        }
+        else
+        {
+            if (lightStatus)
             {
-                if(millis() - delayTime > lightTimer)
+                if (millis() - delayTime > lightTimer)
                 {
                     light->switchOff();
-                    lightStatus = FALSE;
+                    lightStatus = true;
                 }
             }
         }
-        if(lightValue < lightTreshold)
+        if (lightValue < lightTreshold)
         {
             light->switchOn();
-            lightStatus = TRUE;
-        }else{
-            if(lightStatus == TRUE)
+            lightStatus = true;
+        }
+        else
+        {
+            if (lightStatus)
             {
                 light->switchOff();
-                lightStatus = FALSE;
+                lightStatus = false;
             }
         }
-        
     }
 }

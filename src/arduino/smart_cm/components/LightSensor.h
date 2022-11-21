@@ -7,7 +7,7 @@ class LightSensor : public ComponentImpl
 {
 public:
     using ComponentImpl::ComponentImpl;
-    virtual int getLightIntensity();
+    virtual int getLightIntensity() = 0;
 };
 
 #endif

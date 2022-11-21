@@ -1,12 +1,17 @@
 #include "..\kernel\Task.h"
-#include "..\components\LightSensor"
-#include "..\components\Light"
-#include "..\components\Pir"
+#include "..\components\LightSensor.h"
+#include "..\components\Light.h"
+#include "..\components\Pir.h"
 
 class LightSmartTask : public Task
 {
 public:
-    LightSmartTask(int period, LightSensor *lightSensor, Light *light, Pir *pir) : Task(period) { this->lightSensor = lightSensor; this->light = light; this->pir = pir; };
+    LightSmartTask(int period, LightSensor *lightSensor, Light *light, Pir *pir) : Task(period)
+    {
+        this->lightSensor = lightSensor;
+        this->light = light;
+        this->pir = pir;
+    };
     void run();
 
 private:
@@ -15,6 +20,6 @@ private:
     Pir *pir;
     float lightValue;
     bool pirValue;
-    bool lightStatus = FALSE;
+    bool lightStatus = false;
     int delayTime = 0;
 };

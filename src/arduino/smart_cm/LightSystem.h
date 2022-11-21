@@ -16,8 +16,6 @@ private:
     LightSensor *lightSensor;
     Pir *pir;
     int *lightLevel;
-    int *offTimer;
-    int *lightTreshold;
 };
 
 #endif

@@ -9,9 +9,9 @@ public:
     using ComponentImpl::ComponentImpl;
 
 public:
-    virtual void close();
-    virtual void open(int angle);
-    virtual int getAngle();
+    virtual void open(int angle) = 0;
+    virtual void close() = 0;
+    virtual int getAngle() = 0;
 };
 
 #endif

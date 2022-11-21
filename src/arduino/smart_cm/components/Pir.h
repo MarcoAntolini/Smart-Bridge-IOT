@@ -7,7 +7,7 @@ class Pir : public ComponentImpl
 {
 public:
     using ComponentImpl::ComponentImpl;
-    virtual bool isDetected();
+    virtual bool isDetected() = 0;
 };
 
 #endif

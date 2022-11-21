@@ -7,8 +7,8 @@ class Light : public ComponentImpl
 {
 public:
     using ComponentImpl::ComponentImpl;
-    void switchOn();
-    void switchOff();
+    virtual void switchOn() = 0;
+    virtual void switchOff() = 0;
 };
 
 #endif
