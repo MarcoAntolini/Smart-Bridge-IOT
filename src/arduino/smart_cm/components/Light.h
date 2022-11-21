@@ -9,6 +9,7 @@ public:
     using ComponentImpl::ComponentImpl;
     virtual void switchOn() = 0;
     virtual void switchOff() = 0;
+    virtual bool getStatus() = 0;
 };
 
 #endif

@@ -6,7 +6,7 @@
 class LightSmartTask : public Task
 {
 public:
-    LightSmartTask(int period, LightSensor *lightSensor, Light *light, Pir *pir) : Task(period)
+    LightSmartTask(LightSensor *lightSensor, Light *light, Pir *pir) : Task()
     {
         this->lightSensor = lightSensor;
         this->light = light;

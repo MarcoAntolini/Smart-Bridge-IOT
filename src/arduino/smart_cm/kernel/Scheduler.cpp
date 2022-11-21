@@ -7,7 +7,7 @@ static void interruptTimer()
     timerFlag = true;
 }
 
-Scheduler::Scheduler(int period)
+void Scheduler::init(int period)
 {
     this->nTask = 0;
     this->period = period * 1000;

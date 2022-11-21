@@ -6,9 +6,17 @@
 class LedImpl : public Light
 {
 public:
-    LedImpl(uint8_t pin) : Light(pin) { pinMode(pin, OUTPUT); };
+    LedImpl(uint8_t pin) : Light(pin)
+    {
+        pinMode(pin, OUTPUT);
+        status = false;
+    };
     void switchOn();
     void switchOff();
+    bool getStatus();
+
+private:
+    bool status;
 };
 
 #endif

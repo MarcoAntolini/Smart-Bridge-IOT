@@ -8,7 +8,7 @@
 class Scheduler
 {
 public:
-    Scheduler(int period);
+    virtual void init(int period);
     virtual void schedule();
     virtual bool addTask(Task *task);
     virtual void deactivateAll();

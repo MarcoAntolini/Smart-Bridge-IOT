@@ -4,7 +4,7 @@
 class SonarTask : public Task
 {
 public:
-    SonarTask(int period, Sonar *sonar) : Task(period) { this->sonar = sonar; };
+    SonarTask(Sonar *sonar) : Task() { this->sonar = sonar; };
     void run();
 
 private:

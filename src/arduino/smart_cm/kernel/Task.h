@@ -4,11 +4,21 @@
 class Task
 {
 public:
-    Task(int period)
+    Task()
     {
+        this->active = false;
+    }
+
+    virtual void init()
+    {
+        this->active = true;
+    }
+
+    virtual void init(int period)
+    {
+        this->active = true;
         this->period = period;
         this->timeElapsed = 0;
-        this->active = false;
     }
 
     void setPeriod(int period)
@@ -18,7 +28,8 @@ public:
 
     void setActive(bool status)
     {
-        this->active = active;
+        this->active = status;
+        this->timeElapsed = 0;
     }
 
     bool isActive()
