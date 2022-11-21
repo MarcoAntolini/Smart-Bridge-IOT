@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "LightSensormpl.h"
 
 int LightSensorImpl::getLightIntensity()

@@ -1,6 +1,8 @@
 #ifndef __COMPONENT__
 #define __COMPONENT__
 
+#include "Arduino.h"
+
 class Component
 {
 public:

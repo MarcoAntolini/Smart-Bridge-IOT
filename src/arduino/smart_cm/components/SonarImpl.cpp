@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "SonarImpl.h"
 
 SonarImpl::SonarImpl(uint8_t i_pin, uint8_t o_pin)

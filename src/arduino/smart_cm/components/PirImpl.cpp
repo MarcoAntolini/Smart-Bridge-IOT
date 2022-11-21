@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "PirImpl.h"
 
 // PirImpl::PirImpl(uint8_t pin) : Pir(pin)

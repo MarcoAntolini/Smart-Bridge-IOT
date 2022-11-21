@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "ComponentImpl.h"
 
 ComponentImpl::ComponentImpl(uint8_t pin)

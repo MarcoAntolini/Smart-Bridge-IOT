@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "ServoMotorImpl.h"
 
 // ServoMotorImpl::ServoMotorImpl(uint8_t pin) : ServoMotor(pin)

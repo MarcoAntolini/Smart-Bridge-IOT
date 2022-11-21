@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "MonitorImpl.h"
 #include "..\Config.h"
 
