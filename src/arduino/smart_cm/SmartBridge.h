@@ -5,6 +5,8 @@ class SmartBridge
 {
 public:
     SmartBridge();
+    void setup();
+    void loop();
 
 private:
 };

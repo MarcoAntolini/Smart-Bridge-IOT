@@ -4,21 +4,48 @@
 class Task
 {
 public:
-    Task()
+    Task(int period)
     {
-        active = false;
+        this->period = period;
+        this->timeElapsed = 0;
+        this->active = false;
     }
 
-    virtual bool isActive()
+    void setPeriod(int period)
     {
-        return active;
+        this->period = period;
     }
 
-    virtual void run();
+    void setActive(bool status)
+    {
+        this->active = active;
+    }
+
+    bool isActive()
+    {
+        return this->active;
+    }
+
+    bool update(int period)
+    {
+        this->timeElapsed += period;
+        if (this->timeElapsed >= this->period)
+        {
+            this->timeElapsed = 0;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    virtual void run() = 0;
 
 private:
+    int period;
+    int timeElapsed;
     bool active;
-    bool play;
 };
 
 #endif

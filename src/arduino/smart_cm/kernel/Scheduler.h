@@ -9,14 +9,17 @@ class Scheduler
 {
 public:
     Scheduler(int period);
+    virtual void interruptTimer();
+    virtual void schedule();
     virtual bool addTask(Task *task);
+    virtual void deactivateAll();
     virtual void breakTask();
-    virtual void run();
 
 private:
     int period;
     int nTask;
     Task *taskList[MAX_TASKS];
+    volatile bool timerFlag;
 };
 
 #endif
