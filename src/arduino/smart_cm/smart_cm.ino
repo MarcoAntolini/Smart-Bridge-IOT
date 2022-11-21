@@ -11,6 +11,8 @@
 #include "kernel\Scheduler.h"
 #include "tasks\LightSystem.h"
 
+Scheduler scheduler;
+
 void setup()
 {
     Light *ledA = new LedImpl(PIN_LED_A);
@@ -24,7 +26,6 @@ void setup()
     Sonar *sonar = new SonarImpl(PIN_SONAR_I, PIN_SONAR_O);
     Monitor *monitor = new Monitorimpl(LCD_ADDR, LCD_COLS, LCD_ROWS);
 
-    Scheduler scheduler;
     scheduler.init(0);
 
     Task *lightSystem = new LightSystem(ledA, lightSensor, pir);
@@ -34,4 +35,5 @@ void setup()
 
 void loop()
 {
+    scheduler.schedule();
 }
