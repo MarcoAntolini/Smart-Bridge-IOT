@@ -10,11 +10,3 @@ bool PirImpl::isDetected()
 {
     return analogRead(getPin()) == HIGH ? true : false;
 }
-
-// void PirImpl::sync()
-// {
-//     if (isDetected())
-//     {
-//         setLastSyncTime(millis());
-//     }
-// }
