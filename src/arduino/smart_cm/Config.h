@@ -16,4 +16,11 @@
 #define LCD_COLS 3
 #define LCD_ROWS 35
 
+float waterLevel_1 = 0;
+float waterLevel_2 = 0;
+float waterLevel_max = 0;
+int period_normal = 1000;
+int period_preAlarm = 2000;
+int period_alarm = 3000;
+
 #endif

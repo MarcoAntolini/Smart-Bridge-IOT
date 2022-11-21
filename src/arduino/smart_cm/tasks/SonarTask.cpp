@@ -1,4 +1,5 @@
 #include "SonarTask.h"
+#include "..\Config.h"
 
 // SonarTask::SonarTask(int period, Sonar *sonar) : Task(period)
 // {
@@ -8,16 +9,16 @@
 void SonarTask::run()
 {
     distance = sonar->detectDistance();
-    if (distance < 0.5)
+    if (distance < waterLevel_1)
     {
-        this->setPeriod(3000);
+        this->setPeriod(period_alarm);
     }
-    else if (distance < 1.0)
+    else if (distance < waterLevel_2)
     {
-        this->setPeriod(2000);
+        this->setPeriod(period_preAlarm);
     }
-    else
+    else if (distance < waterLevel_max)
     {
-        this->setPeriod(1000);
+        this->setPeriod(period_normal);
     }
 }
