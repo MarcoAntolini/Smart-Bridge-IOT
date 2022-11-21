@@ -1,11 +1,6 @@
 #include "SonarTask.h"
 #include "..\Config.h"
 
-// SonarTask::SonarTask(int period, Sonar *sonar) : Task(period)
-// {
-//     this->sonar = sonar;
-// }
-
 void SonarTask::run()
 {
     distance = sonar->detectDistance();

@@ -6,7 +6,6 @@
 class WaterSystem
 {
 public:
-    // costruttore
     void setAlarmState(AlarmState alarmState);
     AlarmState getAlarmState();
 
