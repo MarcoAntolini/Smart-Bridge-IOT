@@ -6,8 +6,13 @@
 class ServoMotorImpl : public ServoMotor
 {
 public:
-    using ServoMotor::ServoMotor;
-    /* TODO */
+    ServoMotorImpl(uint8_t pin) : ServoMotor(pin){};
+    void open(int angle);
+    void close();
+    int getAngle();
+
+private:
+    int angle;
 };
 
 #endif

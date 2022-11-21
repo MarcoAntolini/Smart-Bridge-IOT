@@ -7,7 +7,11 @@ class ServoMotor : public ComponentImpl
 {
 public:
     using ComponentImpl::ComponentImpl;
-    /* TODO */
+
+public:
+    virtual void close();
+    virtual void open(int angle);
+    virtual int getAngle();
 };
 
 #endif
