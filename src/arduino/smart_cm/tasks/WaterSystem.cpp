@@ -105,5 +105,9 @@ void WaterSystem::checkPrevState()
         lightSystem->setActive(true);
         button->setEnabled(false);
         servoMotor->close();
+        if (ledC->getStatus())
+        {
+            ledC->switchOff();
+        }
     }
 }
