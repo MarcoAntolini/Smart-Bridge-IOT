@@ -34,7 +34,7 @@ void setup()
     scheduler.addTask(lightSystem);
 
     Task *waterSystem = new WaterSystem(ledB, ledC, pot, sonar, monitor, servoMotor, button, lightSystem);
-    waterSystem.init();
+    waterSystem.initPeriodic(period_normal);
     scheduler.addTask(waterSystem);
 }
 
