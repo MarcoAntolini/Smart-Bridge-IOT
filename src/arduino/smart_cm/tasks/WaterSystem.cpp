@@ -1,12 +1,17 @@
 #include "Arduino.h"
 #include "WaterSystem.h"
+#include "..\Config.h"
 
-void WaterSystem::setAlarmState(AlarmState alarmState)
+void WaterSystem::run()
 {
-    this->alarmState = alarmState;
 }
 
-AlarmState WaterSystem::getAlarmState()
-{
-    return this->alarmState;
-}
+// void WaterSystem::setAlarmState(AlarmState alarmState)
+// {
+//     this->alarmState = alarmState;
+// }
+
+// AlarmState WaterSystem::getAlarmState()
+// {
+//     return this->alarmState;
+// }

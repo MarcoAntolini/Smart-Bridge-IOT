@@ -1,11 +1,6 @@
 #include "MonitorImpl.h"
 #include "..\Config.h"
 
-// TODO togliere:
-#include "../AlarmState.h"
-#include "ServoMotorImpl.h"
-#include "SonarImpl.h"
-
 MonitorImpl::MonitorImpl(uint8_t addr, uint8_t cols, uint8_t rows)
 {
     this->lcd = new LiquidCrystal_I2C(addr, cols, rows);
@@ -27,16 +22,10 @@ void MonitorImpl::turnOff()
     lcd->noDisplay();
 }
 
-void MonitorImpl::showMessage()
+void MonitorImpl::showMessage(AlarmState alarmState, ServoMotor *servoMotor, Sonar *sonar)
 {
     lcd->clear();
     lcd->setCursor(1, 1);
-
-    // TODO togliere:
-    AlarmState alarmState = AlarmState::NORMAL_SITUATION;
-    ServoMotor *servoMotor = new ServoMotorImpl(0);
-    Sonar *sonar = new SonarImpl(0, 0);
-
     if (alarmState == AlarmState::PRE_ALARM_SITUATION)
     {
         lcd->print(preAlarm);

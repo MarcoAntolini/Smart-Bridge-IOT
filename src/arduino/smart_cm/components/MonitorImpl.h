@@ -11,7 +11,7 @@ public:
     void init();
     void turnOn();
     void turnOff();
-    void showMessage();
+    void showMessage(AlarmState alarmState, ServoMotor *servoMotor, Sonar *sonar);
     void clear();
 
 private:
