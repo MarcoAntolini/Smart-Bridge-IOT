@@ -29,11 +29,11 @@ void WaterSystem::normalTask()
     }
     if (!ledB->getStatus())
     {
-        digitalWrite(ledB, HIGH);
+        digitalWrite(ledB->getPin(), HIGH);
     }
     if (ledC->getStatus())
     {
-        digitalWrite(ledC, LOW);
+        digitalWrite(ledC->getPin(), LOW);
     }
 }
 void WaterSystem::preAlarmTask()
@@ -57,11 +57,11 @@ void WaterSystem::alarmTask()
     }
     if (ledB->getStatus())
     {
-        digitalWrite(ledB, LOW);
+        digitalWrite(ledB->getPin(), LOW);
     }
     if (!ledC->getStatus())
     {
-        digitalWrite(ledC, HIGH);
+        digitalWrite(ledC->getPin(), HIGH);
     }
     monitor->showMessage(alarmState, servoMotor, sonar);
     servoMotor->open(map(sonar->detectDistance(), 0, maxDistance, 0, 180));
