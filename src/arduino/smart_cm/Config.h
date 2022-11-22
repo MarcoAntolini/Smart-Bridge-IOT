@@ -32,6 +32,8 @@ const int lightTimer = 0;
 
 const int debounceDelay = 50;
 
+const int maxDistance = 30;
+
 const String alarm = "Alarm Situation";
 const String preAlarm = "Pre Alarm Situation";
 const String water = "Current water level: ";

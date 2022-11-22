@@ -20,3 +20,8 @@ void LightSystem::run()
         ledA->switchOff();
     }
 }
+
+Light *LightSystem::getLed()
+{
+    return this->ledA;
+}

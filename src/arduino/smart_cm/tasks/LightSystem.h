@@ -17,6 +17,7 @@ public:
         this->onTimer = 0;
     };
     void run();
+    Light *getLed();
 
 private:
     Light *ledA;

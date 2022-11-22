@@ -51,7 +51,10 @@ void WaterSystem::alarmTask()
     {
         setPeriod(period_alarm);
     }
-    // TODO light system off if ledA is off
+    if (!lightSystem->getLed()->getStatus()) // TODO vuol dire che deve essere spenta o che la spegniamo noi?
+    {
+        lightSystem->setActive(false); // TODO riattivare dopo
+    }
     if (ledB->getStatus())
     {
         digitalWrite(ledB, LOW);
@@ -61,6 +64,20 @@ void WaterSystem::alarmTask()
         digitalWrite(ledC, HIGH);
     }
     monitor->showMessage(alarmState, servoMotor, sonar);
-    // TODO motor opened according to sonar
-    // TODO button activation and pot
+    servoMotor->open(map(sonar->detectDistance(), 0, maxDistance, 0, 180));
+    if (!button->isEnabled())
+    {
+        button->setEnabled(true); // TODO disattivare dopo
+    }
+    else // TODO serve? è tardi scusate
+    {
+        if (button->isPressed())
+        {
+            manualMode = !manualMode;
+        }
+    }
+    if (manualMode)
+    {
+        // TODO pot
+    }
 }
