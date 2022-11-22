@@ -1,7 +1,7 @@
 #ifndef __CONFIG__
 #define __CONFIG__
 
-#include "Arduino.h"
+#include <Arduino.h>
 
 #define PIN_POT 0
 #define PIN_PIR 0
@@ -23,14 +23,14 @@
 const float waterLevel_1 = 33;
 const float waterLevel_2 = 66;
 const float waterLevel_max = 100;
-const long period_normal = 3000;
-const long period_preAlarm = 2000;
-const long period_alarm = 1000;
+const unsigned long period_normal = 3000;
+const unsigned long period_preAlarm = 2000;
+const unsigned long period_alarm = 1000;
 
 const int lightTreshold = 0;
 const int lightTimer = 0;
 
-const long blinkDelay = 2000;
+const unsigned long blinkDelay = 2000;
 
 const int debounceDelay = 50;
 

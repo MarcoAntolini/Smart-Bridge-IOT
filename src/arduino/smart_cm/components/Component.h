@@ -1,7 +1,7 @@
 #ifndef __COMPONENT__
 #define __COMPONENT__
 
-#include "Arduino.h"
+#include <Arduino.h>
 
 class Component
 {

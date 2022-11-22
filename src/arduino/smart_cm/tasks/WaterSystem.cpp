@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include <EnableInterrupt.h>
 #include "WaterSystem.h"
 #include "..\Config.h"

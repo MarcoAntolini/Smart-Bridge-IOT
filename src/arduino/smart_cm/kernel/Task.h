@@ -1,6 +1,8 @@
 #ifndef __TASK__
 #define __TASK__
 
+#include <Arduino.h>
+
 class Task
 {
 public:
@@ -89,10 +91,10 @@ public:
     virtual void run() = 0;
 
 private:
-    long period;
-    long endTime;
-    long startTime;
-    long lastTick;
+    unsigned long period;
+    unsigned long endTime;
+    unsigned long startTime;
+    unsigned long lastTick;
     bool active;
     bool periodic;
     bool limited;

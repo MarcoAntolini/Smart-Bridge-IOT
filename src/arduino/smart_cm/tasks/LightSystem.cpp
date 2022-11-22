@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "LightSystem.h"
 #include "..\Config.h"
 
