@@ -25,9 +25,9 @@ public:
         this->alarmState = AlarmState::NORMAL_SITUATION;
     };
     void run();
-
-    // void setAlarmState(AlarmState alarmState);
-    // AlarmState getAlarmState();
+    void normalTask();
+    void preAlarmTask();
+    void alarmTask();
 
 private:
     Light *ledB;

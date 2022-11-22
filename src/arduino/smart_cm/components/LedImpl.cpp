@@ -11,3 +11,8 @@ void LedImpl::switchOff()
     digitalWrite(getPin(), LOW);
     status = false;
 }
+
+void LedImpl::getStatus()
+{
+    return this->status;
+}

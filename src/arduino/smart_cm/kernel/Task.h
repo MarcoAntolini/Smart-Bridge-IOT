@@ -28,6 +28,11 @@ public:
         this->period = period;
     }
 
+    int getPeriod()
+    {
+        return this->period;
+    }
+
     void setActive(bool status)
     {
         this->active = status;
