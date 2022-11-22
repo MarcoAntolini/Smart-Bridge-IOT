@@ -1,4 +1,5 @@
 #include "Arduino.h"
+#include <EnableInterrupt.h>
 #include "WaterSystem.h"
 #include "..\Config.h"
 
@@ -84,15 +85,7 @@ void WaterSystem::alarmTask()
     }
     monitor->showMessage(alarmState, servoMotor, sonar);
     servoMotor->open(map(sonar->detectDistance(), 0, maxDistance, 0, 180));
-
-    if (!button->isEnabled())
-    {
-        button->setEnabled(true);
-    }
-    if (button->isPressed())
-    {
-        manualMode = !manualMode;
-    }
+    enableInterrupt(button, buttonInterrupt(), RISING);
     if (manualMode)
     {
         servoMotor->open(pot->getValue());
@@ -103,6 +96,7 @@ void WaterSystem::checkPrevState()
 {
     if (prevAlarmState == AlarmState::ALARM_SITUATION)
     {
+        disableInterrupt(button);
         lightSystem->setActive(true);
         button->setEnabled(false);
         servoMotor->close();
@@ -111,4 +105,9 @@ void WaterSystem::checkPrevState()
             ledC->switchOff();
         }
     }
+}
+
+void WaterSystem::buttonInterrupt()
+{
+    manualMode = !manualMode;
 }
