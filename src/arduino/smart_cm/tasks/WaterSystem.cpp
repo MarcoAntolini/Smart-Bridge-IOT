@@ -4,9 +4,7 @@
 
 void WaterSystem::run()
 {
-    // SONAR TASK
-    // BUTTON TASK
-    
+    // sonar task, il resto sta dentro
 }
 
 // void WaterSystem::setAlarmState(AlarmState alarmState)
