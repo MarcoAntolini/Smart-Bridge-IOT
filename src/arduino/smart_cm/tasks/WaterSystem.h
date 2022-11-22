@@ -27,7 +27,6 @@ public:
         alarmState = AlarmState::NORMAL_SITUATION;
         prevAlarmState = alarmState;
         lastBlink = millis();
-        manualMode = false;
     };
     void run();
 
@@ -48,10 +47,6 @@ private:
     void preAlarmTask();
     void alarmTask();
     void checkPrevState();
-    static void buttonInterrupt()
-    {
-        manualMode = !manualMode;
-    };
 };
 
 #endif

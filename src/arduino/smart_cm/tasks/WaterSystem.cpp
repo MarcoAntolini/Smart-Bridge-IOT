@@ -3,6 +3,13 @@
 #include "WaterSystem.h"
 #include "..\Config.h"
 
+bool manualMode = false;
+
+void buttonInterrupt()
+{
+    manualMode = !manualMode;
+};
+
 void WaterSystem::run()
 {
     if (sonar->detectDistance() < waterLevel_1)
