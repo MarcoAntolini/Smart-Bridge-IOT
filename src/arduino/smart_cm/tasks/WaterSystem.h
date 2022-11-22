@@ -24,13 +24,11 @@ public:
         this->servoMotor = servoMotor;
         this->button = button;
         this->lightSystem = lightSystem;
-        this->alarmState = AlarmState::NORMAL_SITUATION;
-        this->manualMode = false;
+        alarmState = AlarmState::NORMAL_SITUATION;
+        prevAlarmState = alarmState;
+        manualMode = false;
     };
     void run();
-    void normalTask();
-    void preAlarmTask();
-    void alarmTask();
 
 private:
     Light *ledB;
@@ -42,7 +40,12 @@ private:
     Button *button;
     LightSystem *lightSystem;
     AlarmState alarmState;
+    AlarmState prevAlarmState;
     bool manualMode;
+    void normalTask();
+    void preAlarmTask();
+    void alarmTask();
+    void checkPrevState();
 };
 
 #endif

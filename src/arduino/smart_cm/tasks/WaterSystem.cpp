@@ -6,16 +6,21 @@ void WaterSystem::run()
 {
     if (sonar->detectDistance() < waterLevel_1)
     {
+        prevAlarmState = alarmState;
         alarmState = AlarmState::NORMAL_SITUATION;
+        checkPrevState();
         normalTask();
     }
     else if (sonar->detectDistance() < waterLevel_2)
     {
+        prevAlarmState = alarmState;
         alarmState = AlarmState::PRE_ALARM_SITUATION;
+        checkPrevState();
         preAlarmTask();
     }
     else if (sonar->detectDistance() < waterLevel_max)
     {
+        prevAlarmState = alarmState;
         alarmState = AlarmState::ALARM_SITUATION;
         alarmTask();
     }
@@ -51,10 +56,11 @@ void WaterSystem::alarmTask()
     {
         setPeriod(period_alarm);
     }
-    if (!lightSystem->getLed()->getStatus()) // TODO vuol dire che deve essere spenta o che la spegniamo noi?
+    if (lightSystem->getLed()->getStatus())
     {
-        lightSystem->setActive(false); // TODO riattivare dopo
+        lightSystem->getLed()->switchOff();
     }
+    lightSystem->setActive(false);
     if (ledB->getStatus())
     {
         digitalWrite(ledB->getPin(), LOW);
@@ -67,17 +73,24 @@ void WaterSystem::alarmTask()
     servoMotor->open(map(sonar->detectDistance(), 0, maxDistance, 0, 180));
     if (!button->isEnabled())
     {
-        button->setEnabled(true); // TODO disattivare dopo
+        button->setEnabled(true);
     }
-    else // TODO serve? è tardi scusate
+    if (button->isPressed())
     {
-        if (button->isPressed())
-        {
-            manualMode = !manualMode;
-        }
+        manualMode = !manualMode;
     }
     if (manualMode)
     {
-        // TODO pot
+        servoMotor->open(pot->getValue());
+    }
+}
+
+void WaterSystem::checkPrevState()
+{
+    if (prevAlarmState == AlarmState::ALARM_SITUATION)
+    {
+        lightSystem->setActive(true);
+        button->setEnabled(false);
+        servoMotor->close();
     }
 }
