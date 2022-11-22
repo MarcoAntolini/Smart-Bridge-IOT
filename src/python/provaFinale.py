@@ -10,6 +10,7 @@ x = []
 y = []
 func_id = None
 
+
 def read_data():
     global func_id
     plt.ion()
@@ -24,17 +25,20 @@ def read_data():
         plt.pause(0.0001)
     func_id = Top.after(100, read_data)
 
+
 def close_plot():
     global func_id
-    #to no longer update the plot
+    # to no longer update the plot
     Top.after_cancel(func_id)
     plt.close()
     global x, y
     del x[:]
     del y[:]
 
+
 def quit():
     Top.destroy()
+
 
 Button(Top, text='Read', command=read_data).pack()
 Button(Top, text='Close plot', command=close_plot).pack()

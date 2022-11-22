@@ -10,6 +10,7 @@
 #include "components\Monitor.h"
 #include "kernel\Scheduler.h"
 #include "tasks\LightSystem.h"
+#include "tasks\WaterSystem.h"
 
 Scheduler scheduler;
 
@@ -29,8 +30,12 @@ void setup()
     scheduler.init(0);
 
     Task *lightSystem = new LightSystem(ledA, lightSensor, pir);
-    lightSystem->init();
+    lightSystem.init();
     scheduler.addTask(lightSystem);
+
+    Task *waterSystem = new WaterSystem(ledB, ledC, pot, sonar, monitor, servoMotor, button, lightSystem);
+    waterSystem.init();
+    scheduler.addTask(waterSystem);
 }
 
 void loop()
