@@ -48,7 +48,10 @@ private:
     void preAlarmTask();
     void alarmTask();
     void checkPrevState();
-    void buttonInterrupt();
+    static void buttonInterrupt()
+    {
+        manualMode = !manualMode;
+    };
 };
 
 #endif

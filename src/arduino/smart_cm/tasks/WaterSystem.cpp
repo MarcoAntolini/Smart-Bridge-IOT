@@ -85,7 +85,7 @@ void WaterSystem::alarmTask()
     }
     monitor->showMessage(alarmState, servoMotor, sonar);
     servoMotor->open(map(sonar->detectDistance(), 0, maxDistance, 0, 180));
-    enableInterrupt(button, buttonInterrupt(), RISING);
+    enableInterrupt(button->getPin(), buttonInterrupt, RISING);
     if (manualMode)
     {
         servoMotor->open(pot->getValue());
@@ -96,7 +96,7 @@ void WaterSystem::checkPrevState()
 {
     if (prevAlarmState == AlarmState::ALARM_SITUATION)
     {
-        disableInterrupt(button);
+        disableInterrupt(button->getPin());
         lightSystem->setActive(true);
         servoMotor->close();
         if (ledC->getStatus())
@@ -104,9 +104,4 @@ void WaterSystem::checkPrevState()
             ledC->switchOff();
         }
     }
-}
-
-void WaterSystem::buttonInterrupt()
-{
-    manualMode = !manualMode;
 }
