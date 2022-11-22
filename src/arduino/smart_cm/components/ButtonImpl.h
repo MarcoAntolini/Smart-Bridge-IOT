@@ -12,12 +12,9 @@ public:
         lastDebounceTime = millis();
     };
     bool isPressed();
-    bool isEnabled();
-    void setEnabled(bool status);
 
 private:
     long lastDebounceTime;
-    bool enabled;
 };
 
 #endif

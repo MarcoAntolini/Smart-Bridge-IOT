@@ -98,7 +98,6 @@ void WaterSystem::checkPrevState()
     {
         disableInterrupt(button);
         lightSystem->setActive(true);
-        button->setEnabled(false);
         servoMotor->close();
         if (ledC->getStatus())
         {

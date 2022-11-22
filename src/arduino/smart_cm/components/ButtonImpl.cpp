@@ -13,13 +13,3 @@ bool ButtonImpl::isPressed()
     }
     return false;
 }
-
-bool ButtonImpl::isEnabled()
-{
-    return this->enabled;
-}
-
-void ButtonImpl::setEnabled(bool status)
-{
-    this->enabled = status;
-}
