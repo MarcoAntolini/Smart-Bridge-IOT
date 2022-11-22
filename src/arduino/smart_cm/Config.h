@@ -39,6 +39,4 @@ const String preAlarm = "Pre Alarm Situation";
 const String water = "Current water level: ";
 const String valves = "Current valves opening degrees: ";
 
-volatile bool timerFlag;
-
 #endif

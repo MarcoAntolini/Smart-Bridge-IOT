@@ -2,6 +2,8 @@
 #include <TimerOne.h>
 #include "..\Config.h"
 
+volatile bool timerFlag;
+
 void interruptTimer()
 {
     timerFlag = true;
