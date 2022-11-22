@@ -1,5 +1,4 @@
 #include "Scheduler.h"
-#include <TimerOne.h>
 #include "..\Config.h"
 
 volatile bool timerFlag;
@@ -14,8 +13,6 @@ void Scheduler::init(int period)
     this->nTask = 0;
     this->period = period * 1000;
     timerFlag = false;
-    Timer1.initialize(this->period);
-    Timer1.attachInterrupt(interruptTimer);
 }
 
 void Scheduler::schedule()

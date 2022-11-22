@@ -84,6 +84,7 @@ void WaterSystem::alarmTask()
     }
     monitor->showMessage(alarmState, servoMotor, sonar);
     servoMotor->open(map(sonar->detectDistance(), 0, maxDistance, 0, 180));
+
     if (!button->isEnabled())
     {
         button->setEnabled(true);
