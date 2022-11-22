@@ -27,14 +27,14 @@ void Scheduler::schedule()
         {
             if (taskList[i]->isPeriodic())
             {
-                if (taskList[i]->checkPeriod(period)) // TODO period?
+                if (taskList[i]->checkPeriod())
                 {
                     taskList[i]->run();
                 }
             }
             else if (taskList[i]->isLimited())
             {
-                if (taskList[i]->checkLimit(period)) // TODO period?
+                if (taskList[i]->checkLimit())
                 {
                     taskList[i]->run();
                 }

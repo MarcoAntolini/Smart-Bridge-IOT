@@ -16,30 +16,30 @@ public:
         this->limited = false;
     }
 
-    virtual void initPeriodic(int period)
+    virtual void initPeriodic(long period)
     {
         this->active = true;
         this->periodic = true;
         this->limited = false;
         this->period = period;
-        this->timeElapsed = 0;
+        this->lastTick = millis();
     }
 
-    virtual void initLimited(int endTime)
+    virtual void initLimited(long endTime)
     {
         this->active = true;
         this->periodic = false;
         this->limited = true;
         this->endTime = endTime;
-        this->timeElapsed = 0;
+        this->startTime = millis();
     }
 
-    void setPeriod(int period)
+    void setPeriod(long period)
     {
         this->period = period;
     }
 
-    int getPeriod()
+    long getPeriod()
     {
         return this->period;
     }
@@ -47,7 +47,7 @@ public:
     void setActive(bool status)
     {
         active = status;
-        timeElapsed = 0;
+        lastTick = millis();
     }
 
     bool isActive()
@@ -65,22 +65,21 @@ public:
         return this->limited;
     }
 
-    bool checkPeriod(int time)
+    bool checkPeriod()
     {
-        timeElapsed = time;
-        if (timeElapsed >= period)
+        if ((millis() - lastTick) >= period)
         {
+            lastTick = millis();
             return true;
         }
         return false;
     }
 
-    bool checkLimit(int time)
+    bool checkLimit()
     {
-        timeElapsed += time;
-        if (timeElapsed >= endTime)
+        if ((millis() - startTime) >= endTime)
         {
-            timeElapsed = 0;
+            startTime = millis();
             active = false;
             return false;
         }
@@ -90,9 +89,10 @@ public:
     virtual void run() = 0;
 
 private:
-    int period;
-    int endTime;
-    int timeElapsed;
+    long period;
+    long endTime;
+    long startTime;
+    long lastTick;
     bool active;
     bool periodic;
     bool limited;
