@@ -12,7 +12,7 @@ void LedImpl::switchOff()
     status = false;
 }
 
-void LedImpl::getStatus()
+bool LedImpl::getStatus()
 {
     return this->status;
 }
