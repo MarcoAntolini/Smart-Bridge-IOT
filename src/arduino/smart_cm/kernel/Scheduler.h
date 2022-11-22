@@ -7,13 +7,12 @@
 class Scheduler
 {
 public:
-    virtual void init(int period);
+    virtual void init();
     virtual void schedule();
     virtual void addTask(Task *task);
     virtual void deactivateAll();
 
 private:
-    int period;
     int nTask;
     Task *taskList[MAX_TASKS];
 };

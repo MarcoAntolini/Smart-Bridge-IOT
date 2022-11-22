@@ -27,7 +27,7 @@ void setup()
     Sonar *sonar = new SonarImpl(PIN_SONAR_I, PIN_SONAR_O);
     Monitor *monitor = new Monitorimpl(LCD_ADDR, LCD_COLS, LCD_ROWS);
 
-    scheduler.init(0);
+    scheduler.init();
 
     Task *lightSystem = new LightSystem(ledA, lightSensor, pir);
     lightSystem.init();
