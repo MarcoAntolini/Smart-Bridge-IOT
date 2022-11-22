@@ -4,6 +4,13 @@ from matplotlib import pyplot as plt
 
 Top = Tk()
 
+# TODO prendere la porta giusta
+ports = serial.tools.list_ports.comports()
+
+for port, desc, hwid in sorted(ports):
+    print("{}: {} [{}]".format(port, desc, hwid))
+#
+
 ser = serial.Serial('COM3', baudrate=9600, timeout=1)
 
 x = []
