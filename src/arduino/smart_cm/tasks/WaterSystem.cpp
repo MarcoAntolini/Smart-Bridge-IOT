@@ -41,6 +41,7 @@ void WaterSystem::normalTask()
         digitalWrite(ledC->getPin(), LOW);
     }
 }
+
 void WaterSystem::preAlarmTask()
 {
     if (getPeriod() != period_preAlarm)
@@ -50,6 +51,7 @@ void WaterSystem::preAlarmTask()
     // TODO ledC blinking every 2s
     monitor->showMessage(alarmState, servoMotor, sonar);
 }
+
 void WaterSystem::alarmTask()
 {
     if (getPeriod() != period_alarm)
