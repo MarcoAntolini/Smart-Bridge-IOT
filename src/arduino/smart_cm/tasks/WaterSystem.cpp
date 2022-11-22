@@ -48,8 +48,18 @@ void WaterSystem::preAlarmTask()
     {
         setPeriod(period_preAlarm);
     }
-    // TODO ledC blinking every 2s
-
+    if ((millis() - lastBlink) >= blinkDelay)
+    {
+        lastBlink = millis();
+        if (ledC->getStatus())
+        {
+            ledC->switchOff();
+        }
+        else
+        {
+            ledC->switchOn();
+        }
+    }
     monitor->showMessage(alarmState, servoMotor, sonar);
 }
 

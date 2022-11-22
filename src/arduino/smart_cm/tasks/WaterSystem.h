@@ -26,6 +26,7 @@ public:
         this->lightSystem = lightSystem;
         alarmState = AlarmState::NORMAL_SITUATION;
         prevAlarmState = alarmState;
+        lastBlink = millis();
         manualMode = false;
     };
     void run();
@@ -41,6 +42,7 @@ private:
     LightSystem *lightSystem;
     AlarmState alarmState;
     AlarmState prevAlarmState;
+    long lastBlink;
     bool manualMode;
     void normalTask();
     void preAlarmTask();

@@ -30,6 +30,8 @@ const int period_alarm = 3000;
 const int lightTreshold = 0;
 const int lightTimer = 0;
 
+const long blinkDelay = 2000;
+
 const int debounceDelay = 50;
 
 const int maxDistance = 30;
