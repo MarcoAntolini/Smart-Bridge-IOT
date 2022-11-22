@@ -20,6 +20,8 @@
 
 #define MAX_TASKS 20
 
+#define DEBOUNCE_DELAY 50
+
 const float waterLevel_1 = 33;
 const float waterLevel_2 = 66;
 const float waterLevel_max = 100;

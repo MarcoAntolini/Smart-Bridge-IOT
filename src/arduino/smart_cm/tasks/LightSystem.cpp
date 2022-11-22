@@ -15,7 +15,7 @@ void LightSystem::run()
             }
         }
     }
-    if (millis() - onTimer > lightTimer && (!pir->isDetected() || lightSensor->getLightIntensity() > lightTreshold))
+    if ((millis() - onTimer) > lightTimer && (!pir->isDetected() || lightSensor->getLightIntensity() > lightTreshold))
     {
         ledA->switchOff();
     }

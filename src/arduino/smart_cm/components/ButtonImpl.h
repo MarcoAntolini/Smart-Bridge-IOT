@@ -6,8 +6,18 @@
 class ButtonImpl : public Button
 {
 public:
-    ButtonImpl(uint8_t pin) : Button(pin) { pinMode(pin, INPUT); };
+    ButtonImpl(uint8_t pin) : Button(pin)
+    {
+        pinMode(pin, INPUT);
+        lastDebounceTime = millis();
+    };
     bool isPressed();
+    bool isEnabled();
+    void setEnabled(bool status);
+
+private:
+    long lastDebounceTime;
+    bool enabled;
 };
 
 #endif
