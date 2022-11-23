@@ -13,7 +13,7 @@ public:
     };
     void switchOn();
     void switchOff();
-    bool getStatus();
+    bool isOn();
 
 private:
     bool status;

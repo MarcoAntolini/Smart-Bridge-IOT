@@ -7,7 +7,7 @@ void LightSystem::run()
     {
         if (lightSensor->getLightIntensity() < lightTreshold)
         {
-            if (!ledA->getStatus())
+            if (!ledA->isOn())
             {
                 ledA->switchOn();
                 onTimer = millis();

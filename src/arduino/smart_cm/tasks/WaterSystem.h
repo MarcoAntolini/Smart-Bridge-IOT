@@ -42,7 +42,6 @@ private:
     AlarmState alarmState;
     AlarmState prevAlarmState;
     long lastBlink;
-    bool manualMode;
     void normalTask();
     void preAlarmTask();
     void alarmTask();

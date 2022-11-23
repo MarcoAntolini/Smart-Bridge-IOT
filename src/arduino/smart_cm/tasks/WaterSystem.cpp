@@ -4,7 +4,7 @@
 
 bool manualMode = false;
 
-void buttonInterrupt()
+void interruptButton()
 {
     manualMode = !manualMode;
 };
@@ -39,13 +39,13 @@ void WaterSystem::normalTask()
     {
         setPeriod(period_normal);
     }
-    if (!ledB->getStatus())
+    if (!ledB->isOn())
     {
-        digitalWrite(ledB->getPin(), HIGH);
+        ledB->switchOn();
     }
-    if (ledC->getStatus())
+    if (ledC->isOn())
     {
-        digitalWrite(ledC->getPin(), LOW);
+        ledC->switchOff();
     }
 }
 
@@ -58,7 +58,7 @@ void WaterSystem::preAlarmTask()
     if ((millis() - lastBlink) >= blinkDelay)
     {
         lastBlink = millis();
-        if (ledC->getStatus())
+        if (ledC->isOn())
         {
             ledC->switchOff();
         }
@@ -76,22 +76,22 @@ void WaterSystem::alarmTask()
     {
         setPeriod(period_alarm);
     }
-    if (lightSystem->getLed()->getStatus())
+    if (lightSystem->getLed()->isOn())
     {
         lightSystem->getLed()->switchOff();
     }
     lightSystem->setActive(false);
-    if (ledB->getStatus())
+    if (ledB->isOn())
     {
         digitalWrite(ledB->getPin(), LOW);
     }
-    if (!ledC->getStatus())
+    if (!ledC->isOn())
     {
         digitalWrite(ledC->getPin(), HIGH);
     }
     monitor->showMessage(alarmState, servoMotor, sonar);
     servoMotor->open(map(sonar->detectDistance(), 0, maxDistance, 0, 180));
-    enableInterrupt(button->getPin(), buttonInterrupt, RISING);
+    enableInterrupt(button->getPin(), interruptButton, RISING);
     if (manualMode)
     {
         servoMotor->open(pot->getValue());
@@ -105,9 +105,5 @@ void WaterSystem::checkPrevState()
         disableInterrupt(button->getPin());
         lightSystem->setActive(true);
         servoMotor->close();
-        if (ledC->getStatus())
-        {
-            ledC->switchOff();
-        }
     }
 }
