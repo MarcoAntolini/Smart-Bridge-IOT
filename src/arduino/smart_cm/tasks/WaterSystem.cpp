@@ -90,7 +90,7 @@ void WaterSystem::alarmTask()
         digitalWrite(ledC->getPin(), HIGH);
     }
     monitor->showMessage(alarmState, servoMotor, sonar);
-    servoMotor->open(map(sonar->detectDistance(), 0, maxDistance, 0, 180));
+    servoMotor->open(180 - map(sonar->detectDistance(), 0, maxDistance, 0, 180));
     enableInterrupt(button->getPin(), interruptButton, RISING);
     if (manualMode)
     {
