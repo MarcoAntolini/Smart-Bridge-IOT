@@ -38,7 +38,7 @@ ALARM SITUATION: WL2 < water level < WLmax
 
 
 BASIC VERSION:
-report current state (lights on/off, alarm situation) of the bridge with a GUI or text based output
+report current state (smart lights on/off, alarm situation) of the bridge with a GUI or text based output
 
 COMPLETE VERSION:
 graph reporting temporal trend of water level
