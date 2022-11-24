@@ -63,18 +63,14 @@ void WaterSystem::preAlarmTask()
         setPeriod(period_preAlarm);
     }
     Serial.println("qui?");
-    if ((millis() - lastBlink) >= blinkDelay)
+    //se sono entrato nel task in stato di preallarme sono già passati 2 secondi dall'ultima volta
+    if (ledC->isOn())
     {
-        Serial.println("ci arrivi?");
-        lastBlink = millis();
-        if (ledC->isOn())
-        {
-            ledC->switchOff();
-        }
-        else
-        {
-            ledC->switchOn();
-        }
+        ledC->switchOff();
+    }
+    else
+    {
+        ledC->switchOn();
     }
     Serial.println("o qui?");
     monitor->showMessagePreAlarm(sonar);
