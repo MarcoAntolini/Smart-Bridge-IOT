@@ -1,4 +1,4 @@
-#include "LightSensormpl.h"
+#include "LightSensorImpl.h"
 
 int LightSensorImpl::getLightIntensity()
 {

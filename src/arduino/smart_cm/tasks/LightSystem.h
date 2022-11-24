@@ -2,9 +2,9 @@
 #define __LIGHTSYSTEM__
 
 #include "..\kernel\Task.h"
-#include "..\components\Light.h"
-#include "..\components\LightSensor.h"
-#include "..\components\Pir.h"
+#include "..\components\LedImpl.h"
+#include "..\components\LightSensorImpl.h"
+#include "..\components\PirImpl.h"
 
 class LightSystem : public Task
 {

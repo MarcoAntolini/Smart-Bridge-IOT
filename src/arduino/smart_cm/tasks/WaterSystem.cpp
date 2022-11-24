@@ -15,6 +15,7 @@ void WaterSystem::run()
     {
         prevAlarmState = alarmState;
         alarmState = AlarmState::NORMAL_SITUATION;
+        Serial.println("Normal situation");
         checkPrevState();
         normalTask();
     }
@@ -22,12 +23,14 @@ void WaterSystem::run()
     {
         prevAlarmState = alarmState;
         alarmState = AlarmState::PRE_ALARM_SITUATION;
+        Serial.println("pre situation");
         checkPrevState();
         preAlarmTask();
     }
     else if (sonar->detectDistance() < waterLevel_max)
     {
         prevAlarmState = alarmState;
+        Serial.println("alarm situation");
         alarmState = AlarmState::ALARM_SITUATION;
         alarmTask();
     }

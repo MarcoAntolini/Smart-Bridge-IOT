@@ -12,7 +12,6 @@ public:
     void turnOn();
     void turnOff();
     void showMessage(AlarmState alarmState, ServoMotor *servoMotor, Sonar *sonar);
-    void clear();
 
 private:
     LiquidCrystal_I2C *lcd;
