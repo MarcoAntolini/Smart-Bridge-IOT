@@ -1,9 +1,9 @@
 #ifndef __MONITOR__
 #define __MONITOR__
 
-#include "../AlarmState.h"
-#include "ServoMotor.h"
-#include "Sonar.h"
+#include "..\..\AlarmState.h"
+#include "..\servoMotor\ServoMotor.h"
+#include "..\sonar\Sonar.h"
 
 class Monitor
 {

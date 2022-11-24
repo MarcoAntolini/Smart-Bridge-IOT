@@ -1,5 +1,5 @@
 #include "MonitorImpl.h"
-#include "..\Config.h"
+#include "..\..\Config.h"
 
 MonitorImpl::MonitorImpl(uint8_t addr, uint8_t cols, uint8_t rows)
 {
