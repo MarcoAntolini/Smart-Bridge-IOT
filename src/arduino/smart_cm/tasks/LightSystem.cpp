@@ -6,7 +6,7 @@ void LightSystem::run()
     if (pir->isDetected())
     {
         Serial.println("LightSystem::run()");
-        if (0 < lightTreshold) // if (lightSensor->getLightIntensity() < lightTreshold)
+        if (lightSensor->getLightIntensity() < lightTreshold)
         {
             if (!ledA->isOn())
             {
@@ -15,7 +15,7 @@ void LightSystem::run()
             }
         }
     }
-    else if ((millis() - onTimer) > lightTimer || 0 > lightTreshold)
+    else if ((millis() - onTimer) > lightTimer || lightSensor->getLightIntensity() > lightTreshold)
     {
         ledA->switchOff();
     }
