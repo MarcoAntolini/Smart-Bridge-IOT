@@ -24,6 +24,7 @@
 
 const float distancePreAlarm = 20;
 const float distanceAlarm = 10;
+
 const unsigned long period_normal = 3000;
 const unsigned long period_preAlarm = 2000;
 const unsigned long period_alarm = 1000;
