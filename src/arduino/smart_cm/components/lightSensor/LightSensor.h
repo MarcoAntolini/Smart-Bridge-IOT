@@ -1,7 +1,7 @@
 #ifndef __LIGHTSENSOR__
 #define __LIGHTSENSOR__
 
-#include "ComponentImpl.h"
+#include "..\ComponentImpl.h"
 
 class LightSensor : public ComponentImpl
 {

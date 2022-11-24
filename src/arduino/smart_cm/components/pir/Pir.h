@@ -1,7 +1,7 @@
 #ifndef __PIR__
 #define __PIR__
 
-#include "ComponentImpl.h"
+#include "..\ComponentImpl.h"
 
 class Pir : public ComponentImpl
 {

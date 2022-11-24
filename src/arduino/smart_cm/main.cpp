@@ -1,13 +1,13 @@
 #include <Arduino.h>
 #include "Config.h"
-#include "components\LedImpl.h"
-#include "components\ButtonImpl.h"
-#include "components\PotImpl.h"
-#include "components\ServoMotorImpl.h"
-#include "components\SonarImpl.h"
-#include "components\PirImpl.h"
-#include "components\LightSensorImpl.h"
-#include "components\MonitorImpl.h"
+#include "components\led\LedImpl.h"
+#include "components\button\ButtonImpl.h"
+#include "components\pot\PotImpl.h"
+#include "components\servoMotor\ServoMotorImpl.h"
+#include "components\sonar\SonarImpl.h"
+#include "components\pir\PirImpl.h"
+#include "components\lightSensor\LightSensorImpl.h"
+#include "components\monitor\MonitorImpl.h"
 #include "kernel\Scheduler.h"
 #include "tasks\LightSystem.h"
 #include "tasks\WaterSystem.h"
@@ -43,5 +43,4 @@ void setup()
 void loop()
 {
     scheduler.schedule();
-    // Serial.println("loop");
 }

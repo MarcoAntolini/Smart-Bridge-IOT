@@ -1,7 +1,7 @@
 #ifndef __SERVOMOTOR__
 #define __SERVOMOTOR__
 
-#include "ComponentImpl.h"
+#include "..\ComponentImpl.h"
 
 class ServoMotor : public ComponentImpl
 {

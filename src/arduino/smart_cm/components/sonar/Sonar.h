@@ -1,7 +1,7 @@
 #ifndef __SONAR__
 #define __SONAR__
 
-#include "ComponentImpl.h"
+#include "..\ComponentImpl.h"
 
 class Sonar
 {

@@ -3,12 +3,12 @@
 
 #include "..\AlarmState.h"
 #include "..\kernel\Task.h"
-#include "..\components\LedImpl.h"
-#include "..\components\SonarImpl.h"
-#include "..\components\PotImpl.h"
-#include "..\components\MonitorImpl.h"
-#include "..\components\ServoMotorImpl.h"
-#include "..\components\ButtonImpl.h"
+#include "..\components\led\LedImpl.h"
+#include "..\components\sonar\SonarImpl.h"
+#include "..\components\pot\PotImpl.h"
+#include "..\components\monitor\MonitorImpl.h"
+#include "..\components\servoMotor\ServoMotorImpl.h"
+#include "..\components\button\ButtonImpl.h"
 #include "LightSystem.h"
 
 class WaterSystem : public Task

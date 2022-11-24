@@ -1,7 +1,7 @@
 #ifndef __POT__
 #define __POT__
 
-#include "ComponentImpl.h"
+#include "..\ComponentImpl.h"
 
 class Pot : public ComponentImpl
 {

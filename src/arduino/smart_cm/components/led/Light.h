@@ -1,7 +1,7 @@
 #ifndef __LIGHT__
 #define __LIGHT__
 
-#include "ComponentImpl.h"
+#include "..\ComponentImpl.h"
 
 class Light : public ComponentImpl
 {

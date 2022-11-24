@@ -1,7 +1,7 @@
 #ifndef __BUTTON__
 #define __BUTTON__
 
-#include "ComponentImpl.h"
+#include "..\ComponentImpl.h"
 
 class Button : public ComponentImpl
 {
