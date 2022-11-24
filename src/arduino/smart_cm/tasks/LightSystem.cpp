@@ -3,6 +3,7 @@
 
 void LightSystem::run()
 {
+    Serial.println("LightSystem::run()");
     if (pir->isDetected())
     {
         if (lightSensor->getLightIntensity() < lightTreshold)

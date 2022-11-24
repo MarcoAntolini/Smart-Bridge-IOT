@@ -11,7 +11,9 @@ void interruptButton()
 
 void WaterSystem::run()
 {
-    if (sonar->detectDistance() < waterLevel_1)
+    Serial.println("WaterSystem::run()");
+    Serial.println(sonar->detectDistance());
+    if (sonar->detectDistance() > distancePreAlarm)
     {
         prevAlarmState = alarmState;
         alarmState = AlarmState::NORMAL_SITUATION;
@@ -19,7 +21,7 @@ void WaterSystem::run()
         checkPrevState();
         normalTask();
     }
-    else if (sonar->detectDistance() < waterLevel_2)
+    else if (sonar->detectDistance() > distanceAlarm && sonar->detectDistance() <= distancePreAlarm)
     {
         prevAlarmState = alarmState;
         alarmState = AlarmState::PRE_ALARM_SITUATION;
@@ -27,13 +29,14 @@ void WaterSystem::run()
         checkPrevState();
         preAlarmTask();
     }
-    else if (sonar->detectDistance() < waterLevel_max)
+    else if (sonar->detectDistance() <= distanceAlarm)
     {
         prevAlarmState = alarmState;
         Serial.println("alarm situation");
         alarmState = AlarmState::ALARM_SITUATION;
         alarmTask();
     }
+    delay(1000);
 }
 
 void WaterSystem::normalTask()
@@ -54,12 +57,15 @@ void WaterSystem::normalTask()
 
 void WaterSystem::preAlarmTask()
 {
+    Serial.println("preAlarmTask");
     if (getPeriod() != period_preAlarm)
     {
         setPeriod(period_preAlarm);
     }
+    Serial.println("qui?");
     if ((millis() - lastBlink) >= blinkDelay)
     {
+        Serial.println("ci arrivi?");
         lastBlink = millis();
         if (ledC->isOn())
         {
@@ -70,7 +76,9 @@ void WaterSystem::preAlarmTask()
             ledC->switchOn();
         }
     }
-    monitor->showMessage(alarmState, servoMotor, sonar);
+    Serial.println("o qui?");
+    monitor->showMessagePreAlarm(sonar);
+    Serial.println("no qui?");
 }
 
 void WaterSystem::alarmTask()
@@ -92,7 +100,7 @@ void WaterSystem::alarmTask()
     {
         digitalWrite(ledC->getPin(), HIGH);
     }
-    monitor->showMessage(alarmState, servoMotor, sonar);
+    monitor->showMessageAlarm(servoMotor, sonar);
     servoMotor->open(180 - map(sonar->detectDistance(), 0, maxDistance, 0, 180));
     enableInterrupt(button->getPin(), interruptButton, RISING);
     if (manualMode)
@@ -103,6 +111,7 @@ void WaterSystem::alarmTask()
 
 void WaterSystem::checkPrevState()
 {
+    Serial.println("checkPrevState");
     if (prevAlarmState == AlarmState::ALARM_SITUATION)
     {
         disableInterrupt(button->getPin());

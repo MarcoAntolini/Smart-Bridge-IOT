@@ -11,7 +11,8 @@ public:
     virtual void init() = 0;
     virtual void turnOn() = 0;
     virtual void turnOff() = 0;
-    virtual void showMessage(AlarmState alarmState, ServoMotor *servoMotor, Sonar *sonar) = 0;
+    virtual void showMessageAlarm(ServoMotor *servoMotor, Sonar *sonar) = 0;
+    virtual void showMessagePreAlarm(Sonar *sonar) = 0;
 };
 
 #endif

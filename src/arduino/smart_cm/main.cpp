@@ -29,6 +29,7 @@ void setup()
     Monitor *monitor = new MonitorImpl(LCD_ADDR, LCD_COLS, LCD_ROWS);
 
     scheduler.init();
+    monitor->init();
 
     LightSystem *lightSystem = new LightSystem(ledA, lightSensor, pir);
     lightSystem->init();
@@ -42,4 +43,5 @@ void setup()
 void loop()
 {
     scheduler.schedule();
+    // Serial.println("loop");
 }

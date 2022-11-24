@@ -22,22 +22,26 @@ void MonitorImpl::turnOff()
     lcd->noDisplay();
 }
 
-void MonitorImpl::showMessage(AlarmState alarmState, ServoMotor *servoMotor, Sonar *sonar)
+void MonitorImpl::showMessageAlarm(ServoMotor *servoMotor, Sonar *sonar)
 {
     lcd->clear();
-    lcd->setCursor(1, 1);
-    if (alarmState == AlarmState::PRE_ALARM_SITUATION)
-    {
-        lcd->print(preAlarm);
-        lcd->setCursor(2, 1);
-        lcd->print(water + sonar->detectDistance());
-    }
-    else if (alarmState == AlarmState::ALARM_SITUATION)
-    {
-        lcd->print(alarm);
-        lcd->setCursor(2, 1);
-        lcd->print(water + sonar->detectDistance());
-        lcd->setCursor(3, 1);
-        lcd->print(valves + servoMotor->getAngle());
-    }
+    lcd->setCursor(0, 0);
+    lcd->print("Alarm State");
+    lcd->setCursor(0, 1);
+    lcd->print("WL: ");
+    lcd->setCursor(3, 1);
+    lcd->print(sonar->detectDistance());
+    lcd->setCursor(10, 1);
+    lcd->print("°: ");
+    lcd->setCursor(13, 1);
+    lcd->print(servoMotor->getAngle());
+}
+
+void MonitorImpl::showMessagePreAlarm(Sonar *sonar)
+{
+    lcd->clear();
+    lcd->setCursor(0, 0);
+    lcd->print("Pre Alarm State");
+    lcd->setCursor(0, 1);
+    lcd->print(water + sonar->detectDistance());
 }

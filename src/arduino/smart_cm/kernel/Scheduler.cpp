@@ -1,25 +1,14 @@
 #include "Scheduler.h"
 #include "..\Config.h"
 
-volatile bool timerFlag;
-
-void interruptTimer()
-{
-    timerFlag = true;
-}
-
 void Scheduler::init()
 {
     this->nTask = 0;
-    timerFlag = false;
 }
 
 void Scheduler::schedule()
 {
-    while (!timerFlag)
-    {
-    }
-    timerFlag = false;
+    Serial.println("schedule bene");
     for (int i = 0; i < nTask; i++)
     {
         if (taskList[i]->isActive())
