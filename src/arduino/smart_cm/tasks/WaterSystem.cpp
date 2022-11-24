@@ -6,6 +6,7 @@ bool manualMode = false;
 
 void interruptButton()
 {
+    disableInterrupt(button->getPin());
     manualMode = !manualMode;
 };
 
@@ -63,7 +64,7 @@ void WaterSystem::preAlarmTask()
         setPeriod(period_preAlarm);
     }
     Serial.println("qui?");
-    //se sono entrato nel task in stato di preallarme sono già passati 2 secondi dall'ultima volta
+    // se sono entrato nel task in stato di preallarme sono già passati 2 secondi dall'ultima volta
     if (ledC->isOn())
     {
         ledC->switchOff();
@@ -97,11 +98,14 @@ void WaterSystem::alarmTask()
         digitalWrite(ledC->getPin(), HIGH);
     }
     monitor->showMessageAlarm(servoMotor, sonar);
-    servoMotor->open(180 - map(sonar->detectDistance(), 0, maxDistance, 0, 180));
     enableInterrupt(button->getPin(), interruptButton, RISING);
     if (manualMode)
     {
         servoMotor->open(pot->getValue());
+    }
+    else
+    {
+        servoMotor->open(180 - map(sonar->detectDistance(), 0, maxDistance, 0, 180));
     }
 }
 
