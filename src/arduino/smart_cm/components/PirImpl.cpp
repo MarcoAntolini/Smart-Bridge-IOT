@@ -2,5 +2,5 @@
 
 bool PirImpl::isDetected()
 {
-    return analogRead(getPin()) == HIGH ? true : false;
+    return digitalRead(getPin()) == HIGH ? true : false;
 }
