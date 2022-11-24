@@ -43,5 +43,7 @@ void MonitorImpl::showMessagePreAlarm(Sonar *sonar)
     lcd->setCursor(0, 0);
     lcd->print("Pre Alarm State");
     lcd->setCursor(0, 1);
-    lcd->print(water + sonar->detectDistance());
+    lcd->print("WL: ");
+    lcd->setCursor(3, 1);
+    lcd->print(sonar->detectDistance());
 }
