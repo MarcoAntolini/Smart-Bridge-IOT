@@ -3,10 +3,10 @@
 
 void LightSystem::run()
 {
-    Serial.println("LightSystem::run()");
     if (pir->isDetected())
     {
-        if(0 < lightTreshold)                    //if (lightSensor->getLightIntensity() < lightTreshold)
+        Serial.println("LightSystem::run()");
+        if (0 < lightTreshold) // if (lightSensor->getLightIntensity() < lightTreshold)
         {
             if (!ledA->isOn())
             {
@@ -14,9 +14,10 @@ void LightSystem::run()
                 onTimer = millis();
             }
         }
-    }else if ((millis() - onTimer) > lightTimer || 0 > lightTreshold)
+    }
+    else if ((millis() - onTimer) > lightTimer || 0 > lightTreshold)
     {
-         ledA->switchOff();
+        ledA->switchOff();
     }
 }
 
