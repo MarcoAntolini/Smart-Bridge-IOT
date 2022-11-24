@@ -9,36 +9,45 @@ void interruptButton()
 {
     disableInterrupt(buttonPin);
     manualMode = !manualMode;
+    Serial.println("manualMode");
 };
 
 void WaterSystem::run()
 {
-    Serial.println("WaterSystem::run()");
-    Serial.println(sonar->detectDistance());
-    if (sonar->detectDistance() > distancePreAlarm)
+    if (alarmState == AlarmState::ALARM_SITUATION && (millis() - lastAlarmTick) < period_alarm)
     {
-        prevAlarmState = alarmState;
-        alarmState = AlarmState::NORMAL_SITUATION;
-        Serial.println("Normal situation");
-        checkPrevState();
-        normalTask();
-    }
-    else if (sonar->detectDistance() > distanceAlarm && sonar->detectDistance() <= distancePreAlarm)
-    {
-        prevAlarmState = alarmState;
-        alarmState = AlarmState::PRE_ALARM_SITUATION;
-        Serial.println("pre situation");
-        checkPrevState();
-        preAlarmTask();
-    }
-    else if (sonar->detectDistance() <= distanceAlarm)
-    {
-        prevAlarmState = alarmState;
-        Serial.println("alarm situation");
-        alarmState = AlarmState::ALARM_SITUATION;
         alarmTask();
     }
-    delay(1000);
+    else
+    {
+        Serial.println("WaterSystem::run()");
+        Serial.println(sonar->detectDistance());
+        if (sonar->detectDistance() > distancePreAlarm)
+        {
+            prevAlarmState = alarmState;
+            alarmState = AlarmState::NORMAL_SITUATION;
+            Serial.println("Normal situation");
+            checkPrevState();
+            normalTask();
+        }
+        else if (sonar->detectDistance() > distanceAlarm && sonar->detectDistance() <= distancePreAlarm)
+        {
+            prevAlarmState = alarmState;
+            alarmState = AlarmState::PRE_ALARM_SITUATION;
+            Serial.println("pre situation");
+            checkPrevState();
+            preAlarmTask();
+        }
+        else if (sonar->detectDistance() <= distanceAlarm)
+        {
+            prevAlarmState = alarmState;
+            Serial.println("alarm situation");
+            alarmState = AlarmState::ALARM_SITUATION;
+            lastAlarmTick = millis();
+            alarmTask();
+        }
+    }
+    // delay(1000);
 }
 
 void WaterSystem::normalTask()
@@ -46,6 +55,7 @@ void WaterSystem::normalTask()
     if (getPeriod() != period_normal)
     {
         setPeriod(period_normal);
+        lcd->clear();
     }
     if (!ledB->isOn())
     {

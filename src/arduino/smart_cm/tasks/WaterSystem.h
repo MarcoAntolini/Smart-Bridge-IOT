@@ -27,6 +27,7 @@ public:
         alarmState = AlarmState::NORMAL_SITUATION;
         prevAlarmState = alarmState;
         lastBlink = millis();
+        lastAlarmTick = millis();
     };
     void run();
 
@@ -42,6 +43,7 @@ private:
     AlarmState alarmState;
     AlarmState prevAlarmState;
     long lastBlink;
+    long lastAlarmTick;
     void normalTask();
     void preAlarmTask();
     void alarmTask();
