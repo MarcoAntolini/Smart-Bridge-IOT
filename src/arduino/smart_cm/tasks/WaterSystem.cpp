@@ -55,7 +55,7 @@ void WaterSystem::normalTask()
     if (getPeriod() != period_normal)
     {
         setPeriod(period_normal);
-        lcd->clear();
+        monitor->clear();
     }
     if (!ledB->isOn())
     {
@@ -76,6 +76,10 @@ void WaterSystem::preAlarmTask()
     }
     Serial.println("qui?");
     // se sono entrato nel task in stato di preallarme sono già passati 2 secondi dall'ultima volta
+    if (ledB->isOn())
+    {
+        ledB->switchOff();
+    }
     if (ledC->isOn())
     {
         ledC->switchOff();
@@ -102,11 +106,11 @@ void WaterSystem::alarmTask()
     lightSystem->setActive(false);
     if (ledB->isOn())
     {
-        digitalWrite(ledB->getPin(), LOW);
+        ledB->switchOff();
     }
     if (!ledC->isOn())
     {
-        digitalWrite(ledC->getPin(), HIGH);
+        ledC->switchOn();
     }
     monitor->showMessageAlarm(servoMotor, sonar);
     enableInterrupt(button->getPin(), interruptButton, RISING);

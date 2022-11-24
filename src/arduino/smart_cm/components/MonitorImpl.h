@@ -9,6 +9,7 @@ class MonitorImpl : public Monitor
 public:
     MonitorImpl(uint8_t addr, uint8_t cols, uint8_t rows);
     void init();
+    void clear();
     void turnOn();
     void turnOff();
     void showMessageAlarm(ServoMotor *servoMotor, Sonar *sonar);

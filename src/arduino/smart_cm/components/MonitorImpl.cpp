@@ -12,6 +12,11 @@ void MonitorImpl::init()
     lcd->backlight();
 }
 
+void MonitorImpl::clear()
+{
+    lcd->clear();
+}
+
 void MonitorImpl::turnOn()
 {
     lcd->display();
