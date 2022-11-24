@@ -3,10 +3,11 @@
 #include "..\Config.h"
 
 bool manualMode = false;
+const int buttonPin = PIN_BUTTON;
 
 void interruptButton()
 {
-    disableInterrupt(button->getPin());
+    disableInterrupt(buttonPin);
     manualMode = !manualMode;
 };
 
