@@ -14,6 +14,8 @@
 #define PIN_SONAR_I 4
 #define PIN_SONAR_O 5
 
+// #define SDA A4
+// #define SCL A5
 #define LCD_ADDR 0x27
 #define LCD_COLS 3
 #define LCD_ROWS 35
