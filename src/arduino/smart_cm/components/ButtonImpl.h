@@ -14,7 +14,7 @@ public:
     bool isPressed();
 
 private:
-    long lastDebounceTime;
+    unsigned long lastDebounceTime;
 };
 
 #endif
