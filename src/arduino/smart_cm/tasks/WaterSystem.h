@@ -1,7 +1,7 @@
 #ifndef __WATERSYSTEM__
 #define __WATERSYSTEM__
 
-#include "..\AlarmState.h"
+#include "..\State.h"
 #include "..\kernel\Task.h"
 #include "..\components\led\LedImpl.h"
 #include "..\components\sonar\SonarImpl.h"
@@ -24,8 +24,8 @@ public:
         this->servoMotor = servoMotor;
         this->button = button;
         this->lightSystem = lightSystem;
-        alarmState = AlarmState::NORMAL_SITUATION;
-        prevAlarmState = alarmState;
+        state = State::NORMAL_SITUATION;
+        prevState = state;
         lastBlink = millis();
         lastAlarmTick = millis();
     };
@@ -40,8 +40,8 @@ private:
     ServoMotor *servoMotor;
     Button *button;
     LightSystem *lightSystem;
-    AlarmState alarmState;
-    AlarmState prevAlarmState;
+    State state;
+    State prevState;
     long lastBlink;
     long lastAlarmTick;
     void normalTask();

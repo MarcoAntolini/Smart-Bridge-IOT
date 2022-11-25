@@ -9,45 +9,47 @@ void interruptButton()
 {
     disableInterrupt(buttonPin);
     manualMode = !manualMode;
-    Serial.println("manualMode");
 };
+
+void serialPrint(int distance)
+{
+    Serial.print(millis());
+    Serial.print("  ");
+    Serial.println(distance);
+}
 
 void WaterSystem::run()
 {
-    if (alarmState == AlarmState::ALARM_SITUATION && (millis() - lastAlarmTick) < period_alarm)
+    if (state ==State::ALARM_SITUATION && (millis() - lastAlarmTick) < period_alarm)
     {
         alarmTask();
     }
     else
     {
-        Serial.println("WaterSystem::run()");
-        Serial.println(sonar->detectDistance());
-        if (sonar->detectDistance() > distancePreAlarm)
+        int distance = sonar->detectDistance();
+        serialPrint(distance);
+        if (distance > distancePreAlarm)
         {
-            prevAlarmState = alarmState;
-            alarmState = AlarmState::NORMAL_SITUATION;
-            Serial.println("Normal situation");
+            prevState = state;
+            state = State::NORMAL_SITUATION;
             checkPrevState();
             normalTask();
         }
-        else if (sonar->detectDistance() > distanceAlarm && sonar->detectDistance() <= distancePreAlarm)
+        else if (distance > distanceAlarm && distance <= distancePreAlarm)
         {
-            prevAlarmState = alarmState;
-            alarmState = AlarmState::PRE_ALARM_SITUATION;
-            Serial.println("pre situation");
+            prevState = state;
+            state = State::PRE_ALARM_SITUATION;
             checkPrevState();
             preAlarmTask();
         }
-        else if (sonar->detectDistance() <= distanceAlarm)
+        else if (distance <= distanceAlarm)
         {
-            prevAlarmState = alarmState;
-            Serial.println("alarm situation");
-            alarmState = AlarmState::ALARM_SITUATION;
+            prevState = state;
+            state = State::ALARM_SITUATION;
             lastAlarmTick = millis();
             alarmTask();
         }
     }
-    // delay(1000);
 }
 
 void WaterSystem::normalTask()
@@ -126,8 +128,7 @@ void WaterSystem::alarmTask()
 
 void WaterSystem::checkPrevState()
 {
-    Serial.println("checkPrevState");
-    if (prevAlarmState == AlarmState::ALARM_SITUATION)
+    if (prevState == State::ALARM_SITUATION)
     {
         disableInterrupt(button->getPin());
         lightSystem->setActive(true);

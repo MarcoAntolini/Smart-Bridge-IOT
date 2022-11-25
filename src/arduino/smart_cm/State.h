@@ -1,7 +1,7 @@
-#ifndef __ALARMSTATE__
-#define __ALARMSTATE__
+#ifndef __STATE__
+#define __STATE__
 
-enum class AlarmState
+enum class State
 {
     NORMAL_SITUATION,
     ALARM_SITUATION,
