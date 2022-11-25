@@ -59,7 +59,7 @@ def quit():
 
 def critic_mod():
     print("critic mod, bisogna mandare segnale ad arduiono")
-    ser.write(slider.getint())
+    ser.write("remote")
 
 
 def slider_value():
@@ -72,7 +72,7 @@ Button(Top, text='Close plot', command=close_plot).pack()
 slider = Scale(Top, from_=0, to=100)
 slider.pack()
 slider.on_changed(slider_value)
-Button(Top, text='critic mod', command=close_plot).pack()
+Button(Top, text='critic mod', command=critic_mod).pack()
 Button(Top, text='Quit', command=quit).pack()
 
 mainloop()

@@ -117,7 +117,7 @@ void WaterSystem::alarmTask()
     }
     monitor->showMessageAlarm(servoMotor, sonar);
     enableInterrupt(button->getPin(), interruptButton, RISING);
-    if(Serial.available() > 0)
+    if(Serial.available() > 0 && Serial.readString() == "remote")
     {
         remoteMode = !remoteMode;
     }
