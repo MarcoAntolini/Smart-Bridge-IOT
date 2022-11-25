@@ -3,6 +3,7 @@
 #include "..\Config.h"
 
 bool manualMode = false;
+bool remoteMode = false;
 const int buttonPin = PIN_BUTTON;
 
 void interruptButton()
@@ -116,13 +117,28 @@ void WaterSystem::alarmTask()
     }
     monitor->showMessageAlarm(servoMotor, sonar);
     enableInterrupt(button->getPin(), interruptButton, RISING);
-    if (manualMode)
+    if(Serial.available() > 0)
+    {
+        remoteMode = !remoteMode;
+    }
+    if(remoteMode){
+        if(Serial.available() > 0)
+    {
+        servoMotor->move(Serial.read());
+    }
+    } 
+    else if (manualMode)
     {
         servoMotor->open(pot->getValue());
-    }
+    } 
     else
     {
-        servoMotor->open(180 - map(sonar->detectDistance(), 0, maxDistance, 0, 180));
+        if(sonar->detectDistance() < maxDistance){ //TODO nel caso di valori assurdi non si fanno danni al servo, da controllare
+            servoMotor->open(180 - map(sonar->detectDistance(), 0, maxDistance, 0, 180));
+        }else{
+            servoMotor->open(180);
+        }
+        
     }
 }
 
