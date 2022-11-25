@@ -5,7 +5,6 @@ void LightSystem::run()
 {
     if (pir->isDetected())
     {
-        Serial.println("LightSystem::run()");
         if (lightSensor->getLightIntensity() < lightTreshold)
         {
             if (!ledA->isOn())
