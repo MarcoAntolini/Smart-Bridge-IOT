@@ -8,7 +8,7 @@ void Scheduler::init()
 
 void Scheduler::schedule()
 {
-    Serial.println("schedule bene");
+    //Serial.println("schedule bene");
     for (int i = 0; i < nTask; i++)
     {
         if (taskList[i]->isActive())

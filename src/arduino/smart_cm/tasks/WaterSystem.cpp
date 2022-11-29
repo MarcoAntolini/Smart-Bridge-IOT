@@ -72,12 +72,12 @@ void WaterSystem::normalTask()
 
 void WaterSystem::preAlarmTask()
 {
-    Serial.println("preAlarmTask");
+    //Serial.println("preAlarmTask");
     if (getPeriod() != period_preAlarm)
     {
         setPeriod(period_preAlarm);
     }
-    Serial.println("qui?");
+    //Serial.println("qui?");
     // se sono entrato nel task in stato di preallarme sono già passati 2 secondi dall'ultima volta
     if (ledB->isOn())
     {
@@ -91,9 +91,9 @@ void WaterSystem::preAlarmTask()
     {
         ledC->switchOn();
     }
-    Serial.println("o qui?");
+    //Serial.println("o qui?");
     monitor->showMessagePreAlarm(sonar);
-    Serial.println("no qui?");
+    //Serial.println("no qui?");
 }
 
 void WaterSystem::alarmTask()
