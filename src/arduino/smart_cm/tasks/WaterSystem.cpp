@@ -2,7 +2,6 @@
 #include "WaterSystem.h"
 
 volatile bool manualMode = false;
-volatile bool remoteMode = false;
 const int buttonPin = PIN_BUTTON;
 
 void interruptButton()
@@ -118,16 +117,9 @@ void WaterSystem::alarmTask()
     }
     monitor->showMessageAlarm(servoMotor, sonar);
     enableInterrupt(button->getPin(), interruptButton, RISING);
-    if (Serial.available() > 0 && Serial.readString() == "remote")
+    if (Serial.available() > 0)
     {
-        remoteMode = !remoteMode;
-    }
-    if (remoteMode)
-    {
-        if (Serial.available() > 0)
-        {
-            servoMotor->open(Serial.read());
-        }
+        servoMotor->open(Serial.read());
     }
     else if (manualMode)
     {
@@ -153,7 +145,6 @@ void WaterSystem::checkPrevState()
         disableInterrupt(button->getPin());
         lightSystem->setActive(true);
         servoMotor->close();
-        remoteMode = false;
         manualMode = false;
     }
 }
