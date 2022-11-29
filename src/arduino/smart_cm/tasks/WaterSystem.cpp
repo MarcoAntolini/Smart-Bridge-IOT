@@ -14,13 +14,14 @@ void interruptButton()
 void serialPrint(float distance)
 {
     String s = " ";
+    int time = millis() / 1000;
     if (distance < maxDistance)
     {
-        Serial.println(millis() + s + distance);
+        Serial.println(time + s + distance);
     }
     else
     {
-        Serial.println(millis() + s + maxDistance);
+        Serial.println(time + s + maxDistance);
     }
 }
 
