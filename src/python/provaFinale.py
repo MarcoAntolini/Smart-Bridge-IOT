@@ -1,13 +1,3 @@
-# TODO prendere la porta giusta
-# ports = serial.tools.list_ports.comports()
-
-# for port, desc, hwid in sorted(ports):
-#     print("{}: {} [{}]".format(port, desc, hwid))
-#
-
-# TODO deve riportare grafico situazione acqua + smart lights on/off + alarm situation
-
-# -*- coding: utf-8 -*-
 """
 Created on Mon Nov 21 17:57:33 2022
 
@@ -57,23 +47,8 @@ def close_plot():
 def quit():
     Top.destroy()
 
-
-def critic_mod():
-    print("critic mod, bisogna mandare segnale ad arduiono")
-    ser.write(slider.getint())
-
-
-def slider_value():
-    print("slider valore")
-    ser.write(slider.getint())
-
-
 Button(Top, text='Read', command=read_data).pack()
 Button(Top, text='Close plot', command=close_plot).pack()
-slider = Scale(Top, from_=0, to=180)
-slider.pack()
-slider.on_changed(slider_value)
-Button(Top, text='critic mod', command=close_plot).pack()
 Button(Top, text='Quit', command=quit).pack()
 
 mainloop()
