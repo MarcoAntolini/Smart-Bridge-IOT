@@ -16,3 +16,15 @@ bool LedImpl::isOn()
 {
     return this->status;
 }
+
+String LedImpl::toString()
+{
+    if (status)
+    {
+        return "On";
+    }
+    else
+    {
+        return "Off";
+    }
+}

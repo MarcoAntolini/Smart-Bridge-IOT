@@ -30,6 +30,8 @@ public:
         lastBlink = millis();
         lastAlarmTick = millis();
         distance = maxDistance;
+        waterLevel = 0;
+        timer = 0;
     };
     void run();
 
@@ -47,10 +49,15 @@ private:
     long lastBlink;
     long lastAlarmTick;
     float distance;
+    float waterLevel;
+    String lightState;
+    String alarmState;
+    int timer;
     void normalTask();
     void preAlarmTask();
     void alarmTask();
     void checkPrevState();
+    void serialPrint();
 };
 
 #endif

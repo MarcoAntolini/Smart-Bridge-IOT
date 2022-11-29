@@ -14,6 +14,7 @@ public:
     void switchOn();
     void switchOff();
     bool isOn();
+    String toString();
 
 private:
     bool status;

@@ -10,21 +10,6 @@ void interruptButton()
     manualMode = !manualMode;
 };
 
-void serialPrint(float distance)
-{
-    String s = " ";
-    int time = millis() / 1000;
-    if (distance < maxDistance)
-    {
-        float waterLevel = maxDistance - distance;
-        Serial.println(time + s + waterLevel);
-    }
-    else
-    {
-        Serial.println(time + s + 0);
-    }
-}
-
 void WaterSystem::run()
 {
     if (state == State::ALARM_SITUATION && (millis() - lastAlarmTick) < period_alarm)
@@ -34,11 +19,12 @@ void WaterSystem::run()
     else
     {
         distance = sonar->detectDistance();
-        serialPrint(distance);
+        serialPrint();
         if (distance > distancePreAlarm)
         {
             prevState = state;
             state = State::NORMAL_SITUATION;
+            alarmState = "Normal";
             checkPrevState();
             normalTask();
         }
@@ -46,6 +32,7 @@ void WaterSystem::run()
         {
             prevState = state;
             state = State::PRE_ALARM_SITUATION;
+            alarmState = "Pre-alarm";
             checkPrevState();
             preAlarmTask();
         }
@@ -53,6 +40,7 @@ void WaterSystem::run()
         {
             prevState = state;
             state = State::ALARM_SITUATION;
+            alarmState = "Alarm";
             lastAlarmTick = millis();
             alarmTask();
         }
@@ -144,4 +132,19 @@ void WaterSystem::checkPrevState()
         servoMotor->close();
         manualMode = false;
     }
+}
+
+void WaterSystem::serialPrint()
+{
+    timer = millis() / 1000;
+    lightState = lightSystem->getLed()->toString();
+    if (distance < maxDistance)
+    {
+        waterLevel = maxDistance - distance;
+    }
+    else
+    {
+        waterLevel = 0;
+    }
+    Serial.println(timer + sep + waterLevel + sep + lightState + sep + alarmState);
 }
