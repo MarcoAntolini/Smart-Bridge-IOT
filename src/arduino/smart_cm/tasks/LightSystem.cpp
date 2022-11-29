@@ -12,13 +12,21 @@ void LightSystem::run()
                 ledA->switchOn();
                 onTimer = millis();
             }
-        }else if((millis() - onTimer) > lightTimer){
-            ledA->switchOff();
+        }
+        else if ((millis() - onTimer) > lightTimer)
+        {
+            if (ledA->isOn())
+            {
+                ledA->switchOff();
+            }
         }
     }
     else
     {
-        ledA->switchOff();
+        if (ledA->isOn())
+        {
+            ledA->switchOff();
+        }
     }
 }
 
