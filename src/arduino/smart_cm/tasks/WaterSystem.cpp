@@ -1,8 +1,8 @@
 #include <EnableInterrupt.h>
 #include "WaterSystem.h"
 
-bool manualMode = false;
-bool remoteMode = false;
+volatile bool manualMode = false;
+volatile bool remoteMode = false;
 const int buttonPin = PIN_BUTTON;
 
 void interruptButton()
@@ -13,15 +13,14 @@ void interruptButton()
 
 void serialPrint(float distance)
 {
-    Serial.print(millis());
-    Serial.print("  ");
+    String s = " ";
     if (distance < maxDistance)
     {
-        Serial.println(distance);
+        Serial.println(millis() + s + distance);
     }
     else
     {
-        Serial.println(maxDistance);
+        Serial.println(millis() + s + maxDistance);
     }
 }
 
