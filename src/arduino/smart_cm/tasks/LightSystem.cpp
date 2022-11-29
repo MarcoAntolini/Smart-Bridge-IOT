@@ -10,7 +10,7 @@ void LightSystem::run()
             ledA->switchOn();
             onTimer = millis();
         }
-        else if ((millis() - onTimer) > lightTimer && ledA->isOn())
+        else if (!pir->isDetected() && (millis() - onTimer) > lightTimer && ledA->isOn())
         {
             ledA->switchOff();
         }

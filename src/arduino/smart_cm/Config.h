@@ -31,8 +31,8 @@ const unsigned long period_normal = 3000;
 const unsigned long period_preAlarm = 2000;
 const unsigned long period_alarm = 1000;
 
-const int lightTreshold = 300;
-const int lightTimer = 10000;
+const int lightTreshold = 200;
+const int lightTimer = 5000;
 
 const unsigned long debounceDelay = 40;
 
