@@ -20,7 +20,7 @@ from matplotlib import pyplot as plt
 
 Top = Tk()
 
-ser = serial.Serial('COM5', baudrate=9600, timeout=1)
+ser = serial.Serial('COM6', baudrate=9600, timeout=1)
 
 x = []
 y = []
@@ -35,11 +35,12 @@ def read_data():
         pass
     else:
         s = re.findall(r'\b\d+\b', new_value[2:][:-5])
-        y.append(int(s[1]))
-        x.append(int(s[0]))
-        plt.plot(x, y, 'r-')
-        plt.show()
-        plt.pause(0.0001)
+        if len(s):
+                y.append(float(s[1]))
+                x.append(float(s[0]))
+                plt.plot(x, y, 'r-')
+                plt.show()
+                plt.pause(0.0001)
     func_id = Top.after(100, read_data)
 
 
@@ -59,7 +60,7 @@ def quit():
 
 def critic_mod():
     print("critic mod, bisogna mandare segnale ad arduiono")
-    ser.write("remote")
+    ser.write(slider.getint())
 
 
 def slider_value():
@@ -69,10 +70,10 @@ def slider_value():
 
 Button(Top, text='Read', command=read_data).pack()
 Button(Top, text='Close plot', command=close_plot).pack()
-slider = Scale(Top, from_=0, to=100)
+slider = Scale(Top, from_=0, to=180)
 slider.pack()
 slider.on_changed(slider_value)
-Button(Top, text='critic mod', command=critic_mod).pack()
+Button(Top, text='critic mod', command=close_plot).pack()
 Button(Top, text='Quit', command=quit).pack()
 
 mainloop()
