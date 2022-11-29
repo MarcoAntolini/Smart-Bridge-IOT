@@ -5,20 +5,14 @@ void LightSystem::run()
 {
     if (lightSensor->getLightIntensity() < lightTreshold)
     {
-        if (pir->isDetected())
+        if (pir->isDetected() && !ledA->isOn())
         {
-            if (!ledA->isOn())
-            {
-                ledA->switchOn();
-                onTimer = millis();
-            }
+            ledA->switchOn();
+            onTimer = millis();
         }
-        else if ((millis() - onTimer) > lightTimer)
+        else if ((millis() - onTimer) > lightTimer && ledA->isOn())
         {
-            if (ledA->isOn())
-            {
-                ledA->switchOff();
-            }
+            ledA->switchOff();
         }
     }
     else
