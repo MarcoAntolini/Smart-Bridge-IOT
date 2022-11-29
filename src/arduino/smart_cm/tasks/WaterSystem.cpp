@@ -21,7 +21,7 @@ void serialPrint(float distance)
     }
     else
     {
-        Serial.println(time + s + maxDistance);
+        Serial.println(time + s + 0);
     }
 }
 
