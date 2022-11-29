@@ -1,6 +1,5 @@
 #include <EnableInterrupt.h>
 #include "WaterSystem.h"
-#include "..\Config.h"
 
 bool manualMode = false;
 bool remoteMode = false;
@@ -12,11 +11,18 @@ void interruptButton()
     manualMode = !manualMode;
 };
 
-void serialPrint(int distance)
+void serialPrint(float distance)
 {
     Serial.print(millis());
     Serial.print("  ");
-    Serial.println(distance);
+    if (distance < maxDistance)
+    {
+        Serial.println(distance);
+    }
+    else
+    {
+        Serial.println(maxDistance);
+    }
 }
 
 void WaterSystem::run()
@@ -27,7 +33,7 @@ void WaterSystem::run()
     }
     else
     {
-        int distance = sonar->detectDistance();
+        distance = sonar->detectDistance();
         serialPrint(distance);
         if (distance > distancePreAlarm)
         {
@@ -129,9 +135,9 @@ void WaterSystem::alarmTask()
     }
     else
     {
-        if (sonar->detectDistance() < maxDistance)
+        if (distance < distanceAlarm)
         {
-            servoMotor->open(180 - map(sonar->detectDistance(), 0, maxDistance, 0, 180));
+            servoMotor->open(180 - map(distance, 0, distanceAlarm, 0, 180));
         }
         else
         {
@@ -147,5 +153,7 @@ void WaterSystem::checkPrevState()
         disableInterrupt(button->getPin());
         lightSystem->setActive(true);
         servoMotor->close();
+        remoteMode = false;
+        manualMode = false;
     }
 }

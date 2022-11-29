@@ -1,6 +1,7 @@
 #ifndef __WATERSYSTEM__
 #define __WATERSYSTEM__
 
+#include "..\Config.h"
 #include "..\State.h"
 #include "..\kernel\Task.h"
 #include "..\components\led\LedImpl.h"
@@ -28,6 +29,7 @@ public:
         prevState = state;
         lastBlink = millis();
         lastAlarmTick = millis();
+        distance = maxDistance;
     };
     void run();
 
@@ -44,6 +46,7 @@ private:
     State prevState;
     long lastBlink;
     long lastAlarmTick;
+    float distance;
     void normalTask();
     void preAlarmTask();
     void alarmTask();
