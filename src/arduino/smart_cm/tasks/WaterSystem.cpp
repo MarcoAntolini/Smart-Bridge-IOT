@@ -122,7 +122,7 @@ void WaterSystem::alarmTask()
     {
         servoMotor->open(Serial.read());
     }
-    else if (manualMode)
+    if (manualMode)
     {
         servoMotor->open(pot->getValue());
     }
