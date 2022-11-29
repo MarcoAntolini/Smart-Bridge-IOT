@@ -24,7 +24,7 @@ void WaterSystem::run()
         {
             prevState = state;
             state = State::NORMAL_SITUATION;
-            alarmState = "Normal";
+            alarmState = normal;
             checkPrevState();
             normalTask();
         }
@@ -32,7 +32,7 @@ void WaterSystem::run()
         {
             prevState = state;
             state = State::PRE_ALARM_SITUATION;
-            alarmState = "Pre-alarm";
+            alarmState = preAlarm;
             checkPrevState();
             preAlarmTask();
         }
@@ -40,7 +40,7 @@ void WaterSystem::run()
         {
             prevState = state;
             state = State::ALARM_SITUATION;
-            alarmState = "Alarm";
+            alarmState = alarm;
             lastAlarmTick = millis();
             alarmTask();
         }

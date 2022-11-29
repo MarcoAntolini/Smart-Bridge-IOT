@@ -32,6 +32,7 @@ public:
         distance = maxDistance;
         waterLevel = 0;
         timer = 0;
+        alarmState = normal;
     };
     void run();
 
