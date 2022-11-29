@@ -26,17 +26,16 @@ def read_data():
     else:
         s = re.findall(r'\b\d+\b', new_value[2:][:-5])
         if len(s):
-                y.append(float(s[1]))
-                x.append(float(s[0]))
-                plt.plot(x, y, 'r-')
-                plt.show()
-                plt.pause(0.0001)
+            y.append(float(s[1]))
+            x.append(float(s[0]))
+            plt.plot(x, y, 'r-')
+            plt.show()
+            plt.pause(0.0001)
     func_id = Top.after(100, read_data)
 
 
 def close_plot():
     global func_id
-    # to no longer update the plot
     Top.after_cancel(func_id)
     plt.close()
     global x, y
@@ -46,6 +45,7 @@ def close_plot():
 
 def quit():
     Top.destroy()
+
 
 Button(Top, text='Read', command=read_data).pack()
 Button(Top, text='Close plot', command=close_plot).pack()
