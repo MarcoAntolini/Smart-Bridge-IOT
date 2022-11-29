@@ -16,7 +16,8 @@ void serialPrint(float distance)
     int time = millis() / 1000;
     if (distance < maxDistance)
     {
-        Serial.println(time + s + distance);
+        float waterLevel = maxDistance - distance;
+        Serial.println(time + s + waterLevel);
     }
     else
     {
