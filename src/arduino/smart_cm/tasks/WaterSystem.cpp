@@ -72,13 +72,10 @@ void WaterSystem::normalTask()
 
 void WaterSystem::preAlarmTask()
 {
-    //Serial.println("preAlarmTask");
     if (getPeriod() != period_preAlarm)
     {
         setPeriod(period_preAlarm);
     }
-    //Serial.println("qui?");
-    // se sono entrato nel task in stato di preallarme sono già passati 2 secondi dall'ultima volta
     if (ledB->isOn())
     {
         ledB->switchOff();
@@ -91,9 +88,7 @@ void WaterSystem::preAlarmTask()
     {
         ledC->switchOn();
     }
-    //Serial.println("o qui?");
     monitor->showMessagePreAlarm(sonar);
-    //Serial.println("no qui?");
 }
 
 void WaterSystem::alarmTask()
@@ -135,7 +130,7 @@ void WaterSystem::alarmTask()
     else
     {
         if (sonar->detectDistance() < maxDistance)
-        { // TODO nel caso di valori assurdi non si fanno danni al servo, da controllare
+        {
             servoMotor->open(180 - map(sonar->detectDistance(), 0, maxDistance, 0, 180));
         }
         else
