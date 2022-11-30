@@ -2,7 +2,7 @@
 #define __COMPONENT__
 
 #include <Arduino.h>
-#include "..\config.h"
+#include "..\Config.h"
 
 class Component
 {
