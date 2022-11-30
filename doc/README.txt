@@ -1,0 +1,1 @@
+Per vedere il grafico (nello schermo del pc) e ciò che viene stampato sulo schermo lcd è necessario zoomare un po' perchè purtroppo il nostro lcd non è retro illuminato e c'era anche del riflesso sul monitor, però si dovrebbe riuscire a vedere.
