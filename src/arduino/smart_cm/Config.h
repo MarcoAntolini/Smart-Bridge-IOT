@@ -16,16 +16,17 @@
 
 // #define SDA A4
 // #define SCL A5
+
 #define LCD_ADDR 0x27
 #define LCD_COLS 3
 #define LCD_ROWS 35
 
 #define MAX_TASKS 20
 
-const float maxDistance = 0.6;
+const float maxDistance = 60;
 
-const float distancePreAlarm = 0.4;
-const float distanceAlarm = 0.2;
+const float distancePreAlarm = 40;
+const float distanceAlarm = 20;
 
 const unsigned long period_normal = 3000;
 const unsigned long period_preAlarm = 2000;
