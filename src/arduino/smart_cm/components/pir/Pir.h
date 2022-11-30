@@ -6,7 +6,7 @@
 class Pir : public ComponentImpl
 {
 public:
-    using ComponentImpl::ComponentImpl;
+    Pir(uint8_t pin) : ComponentImpl(pin) { delay(calibrationTime); };
     virtual bool isDetected() = 0;
 };
 

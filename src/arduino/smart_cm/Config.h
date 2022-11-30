@@ -36,6 +36,8 @@ const int lightTimer = 5000;
 
 const unsigned long debounceDelay = 40;
 
+const unsigned long calibrationTime = 10000;
+
 const String sep = " ";
 const String normal = "Normal";
 const String preAlarm = "Pre-Alarm";
