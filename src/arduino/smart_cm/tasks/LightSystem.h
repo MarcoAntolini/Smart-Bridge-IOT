@@ -15,6 +15,7 @@ public:
         this->lightSensor = lightSensor;
         this->pir = pir;
         this->onTimer = 0;
+        c = false;
     };
     void run();
     Light *getLed();
@@ -24,6 +25,7 @@ private:
     LightSensor *lightSensor;
     Pir *pir;
     int onTimer;
+    bool c;
 };
 
 #endif

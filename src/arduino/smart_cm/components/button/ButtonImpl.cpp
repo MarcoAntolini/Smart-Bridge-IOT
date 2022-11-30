@@ -1,5 +1,4 @@
 #include "ButtonImpl.h"
-#include "..\..\Config.h"
 
 bool ButtonImpl::isPressed()
 {

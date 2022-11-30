@@ -2,7 +2,7 @@
 #include "WaterSystem.h"
 
 volatile bool manualMode = false;
-const int buttonPin = PIN_BUTTON;
+const uint8_t buttonPin = PIN_BUTTON;
 
 void interruptButton()
 {
@@ -19,7 +19,6 @@ void WaterSystem::run()
     else
     {
         distance = sonar->detectDistance();
-        serialPrint();
         if (distance > distancePreAlarm)
         {
             prevState = state;
@@ -45,6 +44,7 @@ void WaterSystem::run()
             alarmTask();
         }
     }
+    serialPrint();
 }
 
 void WaterSystem::normalTask()

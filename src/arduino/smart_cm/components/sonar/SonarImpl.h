@@ -11,13 +11,13 @@ public:
     void setOPin(uint8_t pin);
     uint8_t getIPin();
     uint8_t getOPin();
-    double detectDistance();
+    float detectDistance();
 
 private:
     uint8_t i_pin;
     uint8_t o_pin;
     double duration;
-    double distance;
+    float distance;
 };
 
 #endif

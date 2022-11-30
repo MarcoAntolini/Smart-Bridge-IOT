@@ -28,14 +28,14 @@ uint8_t SonarImpl::getOPin()
     return this->o_pin;
 }
 
-double SonarImpl::detectDistance()
+float SonarImpl::detectDistance()
 {
     digitalWrite(o_pin, LOW);
     delayMicroseconds(3);
     digitalWrite(o_pin, HIGH);
     delayMicroseconds(5);
     digitalWrite(o_pin, LOW);
-    duration = pulseInLong(i_pin, HIGH) / 1000.0 / 10.0;
+    duration = pulseInLong(i_pin, HIGH) / 1000.0 / 1000.0;
     distance = duration * 343 / 2;
     return distance;
 }
