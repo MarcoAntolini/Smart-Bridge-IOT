@@ -37,12 +37,10 @@ void WaterSystem::run()
         }
         else if (distance <= distanceAlarm)
         {
-            Serial.println("ALARM");
             prevState = state;
             state = State::ALARM_SITUATION;
             alarmState = alarm;
             lastAlarmTick = millis();
-            Serial.println("qui?");
             alarmTask();
         }
     }
@@ -91,28 +89,23 @@ void WaterSystem::alarmTask()
 {
     if (getPeriod() != period_alarm)
     {
-        Serial.println("qui1");
         setPeriod(period_alarm);
     }
     if (lightSystem->getLed()->isOn())
     {
-        Serial.println("qui2");
         lightSystem->getLed()->switchOff();
     }
     lightSystem->setActive(false);
     if (ledB->isOn())
     {
-        Serial.println("qui3");
         ledB->switchOff();
     }
     if (!ledC->isOn())
     {
-        Serial.println("qui4");
         ledC->switchOn();
     }
     monitor->showMessageAlarm(servoMotor, sonar);
     enableInterrupt(button->getPin(), interruptButton, RISING);
-    Serial.println("qui5");
     if (manualMode)
     {
         servoMotor->open(pot->getValue());
@@ -128,7 +121,6 @@ void WaterSystem::alarmTask()
             servoMotor->open(180);
         }
     }
-    Serial.println("qui6");
 }
 
 void WaterSystem::checkPrevState()
