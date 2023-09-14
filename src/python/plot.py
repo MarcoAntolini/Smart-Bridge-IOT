@@ -15,9 +15,7 @@ while True:
     new_value = str(ser.readline().decode())
     new_value = new_value[:-2]
     print(new_value)
-    if new_value == "":
-        pass
-    else:
+    if new_value != "":
         print(new_value)
         s = new_value.split(" ")
         if len(s) > 1:
